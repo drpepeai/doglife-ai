@@ -1,0 +1,52 @@
+.typewriter-container {
+    background-color: transparent; /* Dark background for contrast */
+    font-family: "Cascadia Code", monospace;
+    font-size: 0.655vw;
+    line-height: 1.5;
+ 
+    white-space: pre-wrap;
+    overflow: hidden;
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top:0;
+    left: 22%;
+
+    z-index: 1;
+
+  }
+  
+.typewriter-text {
+    width: fit-content ;
+    margin: 0 auto;
+    text-align: left;
+    word-wrap: break-word;
+    text-align: justify;
+}
+
+/* Different colors for certain paragraphs */
+.grey-10{ color: #bebebe63; } 
+.grey-20 { color: #bebebec2; } 
+.grey-30 { color: #bebebe7d; } 
+.grey-40 { color: #bebebe5a; } 
+.grey-50 { color: #bebebedf; } 
+
+
+
+@media (width <= 840px) {
+  .typewriter-container {
+    background-color: transparent; /* Dark background for contrast */
+    font-family: "Cascadia Code", monospace;
+    min-height: 100vh;
+    top:0;
+    left: 50%;
+    right: 0%;
+    z-index: 1;
+    font-size: 1vw;
+
+
+  }
+}

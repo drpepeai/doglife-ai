@@ -1,0 +1,376 @@
+  /* Container to wrap the grid and text */
+  .container {
+    position: relative;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+  }
+  /* Elastic grid styles */
+  .elastic-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0; /* Grid acts as the interactive background */
+  }
+  .grid-item {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: transparent;
+    transition: transform 0.5s ease-out;
+    z-index: -10;
+
+  }
+  .logo-wired{
+    position: absolute;
+    top: 45px;
+    right: 45px;
+  }
+  .capsule-image-container{
+
+    position: absolute;
+    height: 100vh;
+    width: 50vw;
+    top: 0%;
+    left:0%;
+    z-index: 10; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10%;
+
+  }
+  .capsulepepe{
+    width: 70%;
+    height: auto; 
+    z-index: 10;
+  }
+  /* Overlay text styles */
+  .landing-text-container{
+
+    position: absolute;
+    height: 100vh;
+    width: 50vw;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 4rem;
+    padding-left: 0%;
+    padding-bottom: 22.5%;
+  }
+  .overlay-text-title {
+    position: relative;
+    font-size: 48px;
+    font-weight: bold;
+    z-index: 10; 
+    color: #D1D1D1;
+    letter-spacing: 2px;
+    font-family: 'Cascadia Code',monospace;
+
+  }
+  .overlay-text-subtitle-one {
+    position: relative;
+ 
+    color: #D1D1D1;
+    font-family: 'Cascadia Code',monospace;
+    font-size: 16px;
+    font-weight: 400;
+    z-index: 10; /* Ensure text is above the grid */
+    margin-bottom: 5rem;
+  }
+  .agents-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .square-arrow-text-container{
+
+      font-family: 'Cascadia Code',monospace;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 2rem;
+      cursor: crosshair;
+
+  }
+  .human-agent-link:hover{
+    color: white ;
+  }
+  .animal-text{
+    color: #d1d1d180 !important;
+    border-bottom: 1px solid #d1d1d180 !important;
+  }
+  .animal-arrow{
+    color: #d1d1d180 !important;
+  }
+  .squarearrow{
+    height: 18px;
+    padding-bottom: 6px;
+  }
+  .overlay-text-subtitle-three{
+    width: 240px;
+    color: #D1D1D1;
+    font-family: 'Cascadia Code',monospace;
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: 8px;
+    letter-spacing: 0.2rem;
+    border-bottom: 1px solid #D1D1D1; 
+    padding: 0px 6px 6px 6px;
+    text-align: end;
+
+
+  }  
+  .square-arrow-text-container a {
+    color: inherit;  
+    text-decoration: none; 
+  }
+  .square-arrow-text-container a:visited {
+    color: inherit; 
+  }
+
+  /* footer */
+  .landing-cta-container{
+      position: absolute;
+      bottom: 4%;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items:end;
+
+
+      color: #D1D1D1;
+      font-family: 'Cascadia Code',monospace;
+
+      width: 100%;
+      padding: 0 5% 0 5%;
+  
+  }
+  .footer-link-text {
+    position: relative;
+    display: inline-block; /* Ensure the text is inline-block for the pseudo-element to align correctly */
+    z-index: 3000;
+    padding-bottom: 15px;
+  }
+  .footer-link-text::after {
+    content: "";
+    position: absolute;
+    bottom: 0; /* Position the line at the bottom of the text */
+    left: 0;
+    width: 0; /* Start with the line width as 0 */
+    height: 1.2px; /* Line thickness */
+    background-color: rgb(255, 255, 255); /* Line color */
+    transition: width 0.9s ease; /* Smooth animation for width */
+   
+  }
+  .footer-link-text:hover {
+    color: rgb(220, 220, 220); /* Text color on hover */
+    cursor: crosshair;
+  }
+  .footer-link-text:hover::after {
+    width: 100%; /* Expand the line to full width */
+
+  }
+  .solana-ca-container{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+  }
+
+
+  /* Positioning L's in each corner */
+  .corner-text {
+    position: absolute;
+    color: #D1D1D1;
+    font-size: 1rem;
+    font-family: 'Cascadia Code',monospace;
+    font-weight:400;
+    z-index: 10000;
+  }
+  .top-left {
+    top: 16px;
+    left: 16px;
+  }
+  .top-right {
+    top: 16px;
+    right: 16px;
+  }
+  .bottom-left {
+    bottom: 16px;
+    left: 16px;
+  }
+  .bottom-left-two{
+    bottom: 16px;
+    left: 120px;
+  }
+  .bottom-right {
+    bottom: 16px;
+    right: 16px;
+  }
+  .container-top-mobile{
+    display: none;
+  }
+
+
+  
+
+  @media (width <= 1500px) {
+
+    .landing-cta-container{
+      align-items: end;
+    }
+
+  }
+
+
+
+
+  @media (width <= 1000px) {
+  /* hides */
+
+    .landing-cta-container{
+      display: none;
+    }
+    .container-top-desktop{
+      display: none;
+    }
+
+  /* mobile */
+
+
+    .text-cta-mobile  a {
+      color: inherit;  
+      text-decoration: none; 
+    }
+    .text-cta-mobile  a:visited {
+      color: inherit; 
+    }
+    .container-top-mobile{
+      position: absolute;
+      display: flex ;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      height: 50%;
+      width: 100%;
+      /* border: 2px solid gold;*/
+      padding: 5% 5% 5% 5%;
+    }
+    .mobile-logo-wired-container{
+      width: 100%;
+      /*border: 2px solid rgb(76, 0, 255);*/
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding-top: 3%;
+      padding-right: 5%;
+    }
+    .mobile-title-subtitle-container{
+      width: 100%;
+      /*border: 2px solid rgb(255, 0, 170);*/
+      display: flex;
+      flex-direction: column;
+    }
+    .mobile-title{
+      width: 50%;
+    }
+    .mobile-subtitle{
+      color: #D1D1D1;
+      font-family: 'Cascadia Code',monospace;
+      font-size: 1.8vh;
+    }
+    .mobile-pepe-capsule-container{
+      width: 100%;
+      /*border: 2px solid grey;*/
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+    }
+    .mobile-capsule{
+      width: 60%;
+    }
+    .agents-container{
+      width: 100%;
+      /*border: 2px solid blue;*/
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .mobile-agent-text-arrow-container{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: end;
+
+      width: 55%;
+      font-size: 1.8vh;
+      margin-bottom: 1rem;
+    }
+    .agent-text-mobile{
+      color: #D1D1D1;
+      font-family: 'Cascadia Code',monospace;
+      padding-right: 1rem;
+      border-bottom: 1px solid #D1D1D1;
+
+    }
+    .animal-text-mobile{
+      color: #5C5C5C;
+      border-bottom: 1px solid #5C5C5C;
+    }
+    .landing-cta-mobile-container{
+      position: absolute;
+      /*border: 2px solid red;*/
+      bottom: 0px;
+      height: 50%;
+      width: 100%;
+      padding: 0% 5% 5% 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+    .cta-container-mobile-first{
+      width: 100%;
+      /*border:2px solid green;*/
+      margin-bottom: 10%;
+
+    }
+    .text-cta-mobile{
+      color: #D1D1D1;
+      font-family: 'Cascadia Code',monospace;
+      padding-bottom: 5%;
+      font-size: 1.8vh;
+
+      
+    }
+    .parenthesis-text{
+      margin-left: -4px;
+
+
+    }
+    .ca-container-mobile{
+      width: 58%;
+      word-wrap: break-word;
+     /* border: 2px solid red;*/
+
+
+    }
+    .cta-docs-mobile{
+      width: 100%;
+     /* border: 2px solid rgb(0, 208, 255);*/
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      padding-right: 1rem;
+      z-index: 1000;
+
+    }
+
+
+  }

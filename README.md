@@ -1,3 +1,1 @@
 # doglife-ai
-
-Landing
