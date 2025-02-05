@@ -1,3 +1,3 @@
 # doglife-ai
 
-Landing page
+Landing
