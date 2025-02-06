@@ -1,7 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
-import {  useNavigate } from 'react-router-dom';
 
-
+import { OrbitControls } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
+import { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import Earth from '../animations /Earth/Earth';  
 import "./hero.css";
 import doggyhead from "../assets/doggyhead.svg";
 import squarearrow from "../assets/up-right-arrow-grey.svg";
@@ -17,7 +20,7 @@ import solanalogo_circle from "../assets/solana-logo-s.svg"
 
 const Hero = () => {
   const gridRef = useRef(null);
-  const navigate = useNavigate();
+
 
 
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -171,7 +174,14 @@ const Hero = () => {
       <div className="container-top-desktop">
 
             <div className="capsule-image-container">
-              <img src={doggyhead} alt="capsulepepe" className="capsulepepe" />
+              <Canvas>
+                <ambientLight intensity={1}/>
+                <OrbitControls enableZoom={false} />
+                <Suspense fallback={null}>
+                    <Earth />
+                  </Suspense>
+                  <Environment preset="sunset" />
+              </Canvas>
               <TypewriterEffect />
             </div>
 
@@ -236,7 +246,14 @@ const Hero = () => {
       {/* Top mobile */}
       <div className="container-top-mobile">
           <div className="mobile-logo-wired-container">
-            <img src={doggylogo} alt="drpepe logo" width={35} />
+          <Canvas>
+                <ambientLight intensity={1}/>
+                <OrbitControls enableZoom={false} />
+                <Suspense fallback={null}>
+                    <Earth />
+                  </Suspense>
+                  <Environment preset="sunset" />
+              </Canvas>
           </div>
           <TypewriterEffect />
 
