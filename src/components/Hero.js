@@ -6,7 +6,6 @@ import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import Earth from '../animations /Earth/Earth';  
 import "./hero.css";
-import doggyhead from "../assets/doggyhead.svg";
 import squarearrow from "../assets/up-right-arrow-grey.svg";
 import squarearrowgrey from "../assets/up-right-arrow-grey-opaque.svg";
 import l_bottom_left from "../assets/l_bottom_left.svg";
@@ -274,7 +273,6 @@ const Hero = () => {
 
 
           <div className=" mobile-pepe-capsule-container">
-            <img src={doggyhead} alt="capsulepepe" className="mobile-capsule" />
           </div>
 
 
