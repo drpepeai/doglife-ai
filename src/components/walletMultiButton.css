@@ -1,0 +1,32 @@
+.wallet-adapter-dropdown  {
+    background-color: transparent;
+    border-bottom: 0.2vw solid var(--primary-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    margin-left: 2vw;
+    text-decoration: none;
+    height: 2.5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 2px solid #d1d1d1;
+    position: fixed !important;
+    top: 20px;
+    right: 20px;
+    font-family: 'Cascadia Code',monospace;
+    font-size: 12px !important;
+  }
+  .wallet-adapter-button-trigger {
+    background-color: transparent !important;  
+  }
+  .wallet-adapter-button{
+    height: 40px !important;
+    font-family: 'Cascadia Code',monospace;
+    font-size: 12px !important;
+  }
+  
+  .wallet-adapter-button-start-icon img{
+  
+  display: none !important;
+  }
+  
