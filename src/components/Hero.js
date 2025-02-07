@@ -45,10 +45,6 @@ const Hero = () => {
     const webLink ='https://jup.ag/tokens/BrYANThKaAbjZZH5XWLrw26NzMbfUNmBwbZiMe4Fj5Mk'
     window.open(webLink, '_blank', 'noopener noreferrer');
   }
-  const openHumanAgent = () => {
-    const webLink ='https://agent.drpepe.ai/'
-    window.open(webLink,'noopener noreferrer');
-  }
   const openDogAgent = () => {
     const mobileLink = 'tg://resolve?domain=drpepeaiOFFICIAL'; 
     const webLink = 'tg://resolve?domain=drpepeaiOFFICIAL'; 
@@ -222,7 +218,7 @@ const Hero = () => {
           <div className="mobile-title-subtitle-container">
 
             <div className="mobile-title"> 
-              <img src={doglifeai_title} alt="DOG LIFE AI" />
+              <img src={doglifeai_title} alt="DOG LIFE AI" width={500} />
             </div>
 
             <div className="mobile-subtitle">
