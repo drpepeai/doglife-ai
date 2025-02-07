@@ -42,10 +42,10 @@
     font-family: "Cascadia Code", monospace;
     min-height: 100vh;
     top:0;
-    left: 50%;
-    right: 0%;
+    left: 5%;
+    right: 5%;
     z-index: 1;
-    font-size: 1vw;
+    font-size: 2vw;
 
 
   }

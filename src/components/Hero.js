@@ -1,27 +1,21 @@
 import React, { useRef, useEffect, useState } from "react";
 
-import { OrbitControls } from "@react-three/drei";
-import { Environment } from "@react-three/drei";
-import { Suspense } from 'react';
-import { Canvas } from '@react-three/fiber';
-import Earth from '../animations /Earth/Earth';  
+
+
 import "./hero.css";
 import squarearrow from "../assets/up-right-arrow-grey.svg";
-import squarearrowgrey from "../assets/up-right-arrow-grey-opaque.svg";
+
 import l_bottom_left from "../assets/l_bottom_left.svg";
 import l_bottom_right from "../assets/l_bottom_right.svg";
 import l_top_right from "../assets/l_top_right.svg";
 import l_top_left from "../assets/l_top_left.svg";
-import doglifeai_title from "../assets/doglifeai-title.svg";
+import doglifeai_title from "../assets/doglife-title-uppercase.svg";
 import TypewriterEffect from "./TypewriterEffect";
 import doggylogo from "../assets/doggylogo.svg";
 import solanalogo_circle from "../assets/solana-logo-s.svg"
 
 const Hero = () => {
   const gridRef = useRef(null);
-
-
-
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   const openTelegramLink = () => {
@@ -34,28 +28,23 @@ const Hero = () => {
       window.open(webLink, '_blank', 'noopener noreferrer');
     }
   };
-
   const openXLink = () => {
     const webLink = 'https://x.com/drpepeai'; 
     window.open(webLink, '_blank', 'noopener noreferrer');
   };
-
   const openAmbassadorLink = () => {
     const webLink = 'https://drpepe.typeform.com/EternalsProgram'; 
     window.open(webLink, '_blank', 'noopener noreferrer');
   };
-
   const openDocsLink = () => {
     const webLink = 'https://docs.drpepe.ai/';
     window.open(webLink, '_blank', 'noopener noreferrer');
 
   }
-
   const openJupiter = () => {
     const webLink ='https://jup.ag/tokens/BrYANThKaAbjZZH5XWLrw26NzMbfUNmBwbZiMe4Fj5Mk'
     window.open(webLink, '_blank', 'noopener noreferrer');
   }
-
   const openHumanAgent = () => {
     const webLink ='https://agent.drpepe.ai/'
     window.open(webLink,'noopener noreferrer');
@@ -121,7 +110,6 @@ const Hero = () => {
       });
     };
 
-
     const handleMouseLeave = () => {
       gridItems.forEach((item) => {
         item.style.transform = "translate(0, 0)";
@@ -139,11 +127,6 @@ const Hero = () => {
     
     };
   }, []);
-
-
-
-
-
 
 
   return (
@@ -173,15 +156,7 @@ const Hero = () => {
       <div className="container-top-desktop">
 
             <div className="capsule-image-container">
-              <Canvas>
-                <ambientLight intensity={1}/>
-                <OrbitControls enableZoom={false} />
-                <Suspense fallback={null}>
-                    <Earth />
-                  </Suspense>
-                  <Environment preset="sunset" />
-              </Canvas>
-              <TypewriterEffect />
+            <TypewriterEffect />
             </div>
 
             <div className="landing-text-container">
@@ -209,15 +184,7 @@ const Hero = () => {
                 </div>
 
 
-                <div className="square-arrow-text-container">
-                  <div className="overlay-text-subtitle-three animal-text">Cat Agent v.0 1</div>
-                  <img src={squarearrowgrey} alt="squarearrow" className="squarearrow animal-arrow" />
-                </div>
 
-                <div className="square-arrow-text-container">
-                  <div onClick={openHumanAgent} className="overlay-text-subtitle-three animal-text">Human Agent v.0 1</div>
-                  <img src={squarearrowgrey} alt="squarearrow" className="squarearrow animal-arrow" />
-                </div>
               </div>
 
             </div>
@@ -245,14 +212,7 @@ const Hero = () => {
       {/* Top mobile */}
       <div className="container-top-mobile">
           <div className="mobile-logo-wired-container">
-          <Canvas>
-                <ambientLight intensity={1}/>
-                <OrbitControls enableZoom={false} />
-                <Suspense fallback={null}>
-                    <Earth />
-                  </Suspense>
-                  <Environment preset="sunset" />
-              </Canvas>
+    
           </div>
           <TypewriterEffect />
 
@@ -262,7 +222,7 @@ const Hero = () => {
           <div className="mobile-title-subtitle-container">
 
             <div className="mobile-title"> 
-              <img src={doglifeai_title} alt="drpepe title" width={200} />
+              <img src={doglifeai_title} alt="DOG LIFE AI" />
             </div>
 
             <div className="mobile-subtitle">
@@ -280,21 +240,10 @@ const Hero = () => {
 
             <div className="mobile-agent-text-arrow-container">
               <div   onClick={openDogAgent} className="agent-text-mobile">Dog Agent v.0 1</div>
-              <img src={squarearrow} alt="squarearrow" className="" width={10} />
               
             </div>
 
 
-            <div className="mobile-agent-text-arrow-container">
-              <div className="agent-text-mobile animal-text-mobile">Cat Agent v.0 1</div>
-              <img src={squarearrowgrey} alt="squarearrow" className="" width={10} />
-              
-            </div>
-            <div className="mobile-agent-text-arrow-container">
-              <div  onClick={openHumanAgent} className="agent-text-mobile animal-text-mobile">Human Agent v.0 1</div>
-              <img src={squarearrow} alt="squarearrow" className="" width={10} />
-              
-            </div>
 
           </div>
 
@@ -310,6 +259,8 @@ const Hero = () => {
             <div  onClick={openXLink}  className="text-cta-mobile parenthesis-text">﹝Follow on X @doglifeai﹞</div>
             <div onClick={openTelegramLink} className="text-cta-mobile parenthesis-text">﹝Join Telegram﹞</div>
             <div  onClick={openAmbassadorLink}  className="text-cta-mobile parenthesis-text">﹝Become an Ambassador﹞</div>
+            <div  onClick={openDocsLink} className="text-cta-mobile cta-docs-mobile ">﹝Docs﹞</div>
+
       </div>
 
 
@@ -318,7 +269,6 @@ const Hero = () => {
         <div  className="text-cta-mobile ca-mobile">CA:000000000000000000000000000000000000000000</div>
       </div>
 
-      <div  onClick={openDocsLink} className="text-cta-mobile cta-docs-mobile ">﹝Docs﹞</div>
       </div>
 
     </div>
