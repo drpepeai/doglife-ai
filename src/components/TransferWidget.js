@@ -1,4 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom"; // Import Link
+
+
+import l_bottom_left from "../assets/l_bottom_left.svg";
+import l_bottom_right from "../assets/l_bottom_right.svg";
+import l_top_right from "../assets/l_top_right.svg";
+import l_top_left from "../assets/l_top_left.svg";
+
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { PublicKey, Transaction } from '@solana/web3.js';
@@ -130,49 +138,72 @@ const TransferWidget = () => {
 
     return (
         <>
+        <div className={styles.transferWidget_container}>
+
+
+       <div>
+
+      {/* 4 Corner Words */}
+      <div className="corner-text bottom-left">
+        <img src={l_bottom_left} alt="l" height={15} />
+      </div>
+      <div className="corner-text bottom-right">
+        <img src={l_bottom_right} alt="l" height={15} />
+      </div>
+      <div className="corner-text top-left">
+      <Link to="/" className="burn-link">
+            HOME
+        </Link>
+      </div>
+      <div className="corner-text top-right">
+      
             <WalletMultiButton className={styles.walletButton} />
-            <div className={styles.transferWidget}>
-                <div>Transfer $BRYAN</div>
-                {/* Display the available balance if it's been fetched */}
-                {balance !== null && (
-                    <div className={styles.balanceText}>Balance: {balance} $BRYAN</div>
-                )}
-                <br/>
-                <div className={styles.formGroup}>
-                    <label htmlFor="recipient">Recipient Wallet Address</label>
-                    <input
-                        id="recipient"
-                        type="text"
-                        placeholder="Enter recipient address"
-                        value={recipient}
-                        onChange={(e) => setRecipient(e.target.value)}
-                        className={styles.inputField}
-                    />
-                </div>
-                <div className={styles.formGroup}>
-                    <label htmlFor="amount">Amount ($BRYAN)</label>
-                    <input
-                        id="amount"
-                        type="text"
-                        placeholder="Enter amount"
-                        value={amount}
-                        onChange={handleAmountChange}
-                        className={styles.inputField}
-                    />
-                    {/* Percentage buttons */}
-                    {balance !== null && (
-                        <div className={styles.percentageContainer}>
-                            <button  onClick={() => handlePercentageClick(0.1)}>10%</button>
-                            <button onClick={() => handlePercentageClick(0.2)}>20%</button>
-                            <button onClick={() => handlePercentageClick(0.5)}>50%</button>
-                            <button onClick={() => handlePercentageClick(1)}>100%</button>
-                        </div>
-                    )}
-                </div>
-                <button onClick={handleTransfer} className={styles.transferButton}>
-                    Transfer
-                </button>
+      </div>
+       </div>
+        <div className={styles.transferWidget}>
+            <div>Transfer $BRYAN</div>
+            {/* Display the available balance if it's been fetched */}
+            {balance !== null && (
+                <div className={styles.balanceText}>Balance: {balance} $BRYAN</div>
+            )}
+            <br/>
+            <div className={styles.formGroup}>
+                <label htmlFor="recipient">Recipient Wallet Address</label>
+                <input
+                    id="recipient"
+                    type="text"
+                    placeholder="Enter recipient address"
+                    value={recipient}
+                    onChange={(e) => setRecipient(e.target.value)}
+                    className={styles.inputField}
+                />
             </div>
+            <div className={styles.formGroup}>
+                <label htmlFor="amount">Amount ($BRYAN)</label>
+                <input
+                    id="amount"
+                    type="text"
+                    placeholder="Enter amount"
+                    value={amount}
+                    onChange={handleAmountChange}
+                    className={styles.inputField}
+                />
+                {/* Percentage buttons */}
+                {balance !== null && (
+                    <div className={styles.percentageContainer}>
+                        <button  onClick={() => handlePercentageClick(0.1)}>10%</button>
+                        <button onClick={() => handlePercentageClick(0.2)}>20%</button>
+                        <button onClick={() => handlePercentageClick(0.5)}>50%</button>
+                        <button onClick={() => handlePercentageClick(1)}>100%</button>
+                    </div>
+                )}
+            </div>
+            <button onClick={handleTransfer} className={styles.transferButton}>
+                Transfer
+            </button>
+        </div>
+
+        </div>
         </>
     );
 };

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-
+import { Link } from "react-router-dom"; // Import Link
 
 
 import "./hero.css";
@@ -147,7 +147,9 @@ const Hero = () => {
         <img src={l_top_left} alt="l" height={15} />
       </div>
       <div className="corner-text top-right">
-        <img src={l_top_right} alt="l" height={15} />
+      <Link to="/transfer-widget" className="burn-link">
+          BURN $BRYAN
+        </Link>
       </div>
       {/* Top desktop */}
       <div className="container-top-desktop">
@@ -163,7 +165,7 @@ const Hero = () => {
               </div>
 
               <div className="overlay-text-title">
-                <img src={doglifeai_title} alt="DOG LIFE AI" />
+                <img src={doglifeai_title} alt="DOG LIFE AI" width={300} />
               </div>
 
               <div className="overlay-text-subtitle-one">
@@ -209,7 +211,7 @@ const Hero = () => {
       {/* Top mobile */}
       <div className="container-top-mobile">
           <div className="mobile-logo-wired-container">
-    <img src={doggyhead} alt="doggyhead" width={300}  />
+    <img src={doggyhead} alt="doggyhead"  />
           </div>
           <TypewriterEffect />
 

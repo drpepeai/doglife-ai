@@ -1,9 +1,8 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Hero from './components/Hero';
-import TypewriterEffect from './components/TypewriterEffect';
-import Animations from './components/Animation';
 import TransferWidget from './components/TransferWidget';
+import PageTransition from './components/PageTransition';
 // Import Solana wallet adapter components
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
@@ -26,14 +25,15 @@ function App() {
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
           <Router>
-            <Routes>
-              <Route path="/" element={<Hero />} />
-              <Route path="/typewriter-effect" element={<TypewriterEffect />} />
-              <Route path="/animations" element={<Animations />} />
-              <Route path="/transfer-widget" element={<TransferWidget />} />
+            <PageTransition>
 
-              {/* You can add additional routes here, e.g., for your TransferWidget */}
-            </Routes>
+              <Routes>
+                <Route path="/" element={<Hero />} />
+                <Route path="/transfer-widget" element={<TransferWidget />} />
+
+              </Routes>
+
+            </PageTransition>
           </Router>
         </WalletModalProvider>
       </WalletProvider>
