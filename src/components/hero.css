@@ -266,7 +266,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
-      height: 50%;
+      height: 60%;
       width: 100%;
       /* border: 2px solid gold;*/
       padding: 5% 5% 5% 5%;
@@ -322,7 +322,7 @@
       /*border: 2px solid blue;*/
       display: flex;
       flex-direction: column;
-      margin-top: 2rem;
+      padding: 1rem;
     }
     .mobile-agent-text-arrow-container{
       display: flex;
@@ -355,7 +355,7 @@
       position: absolute;
       /*border: 2px solid red;*/
       bottom: 0px;
-      height: 50%;
+      height: 35%;
       width: 100%;
       padding: 0% 5% 5% 5%;
       display: flex;
