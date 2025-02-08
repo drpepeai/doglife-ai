@@ -30,7 +30,7 @@ const Hero = () => {
     }
   };
   const openXLink = () => {
-    const webLink = 'https://x.com/drpepeai'; 
+    const webLink = 'https://x.com/DogLifeAI'; 
     window.open(webLink, '_blank', 'noopener noreferrer');
   };
   const openAmbassadorLink = () => {
@@ -214,7 +214,7 @@ const Hero = () => {
           <TypewriterEffect />
 
 
-        <div className="">
+        <div className="mobile-container-top-two">
 
           <div className="mobile-title-subtitle-container">
 
@@ -235,20 +235,17 @@ const Hero = () => {
    
 
 
-          <div className="agents-container">
-
-            <div className="mobile-agent-text-arrow-container">
-              <div   onClick={openDogAgent} className="agent-text-mobile">Dog Agent v.0 1</div>
-              
-            </div>
-
-
-
-          </div>
 
         </div>
 
+        <div className="agents-container">
+          <div className="mobile-agent-text-arrow-container">
+            <div   onClick={openDogAgent} className="agent-text-mobile">Dog Agent v.0 1</div>
+            
+          </div>
+        </div>
       </div>
+
 
       {/* Bottom mobile */}
       <div className="landing-cta-mobile-container">
