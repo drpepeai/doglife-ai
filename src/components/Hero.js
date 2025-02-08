@@ -219,18 +219,20 @@ const Hero = () => {
           <div className="mobile-title-subtitle-container">
 
             <div className="mobile-title"> 
-              <img src={doglifeai_title} alt="DOG LIFE AI" width={500} />
+              <img src={doglifeai_title} alt="DOG LIFE AI" className="mobile-title-img" />
             </div>
 
             <div className="mobile-subtitle">
-              An AI Agent for dog immortality ﹝because humans are weird﹞
+              <div className="mobile-subtitle-text">
+
+                An AI Agent for dog immortality ﹝because humans are weird﹞
+              </div>
             </div>
             
           </div>
 
 
-          <div className=" mobile-pepe-capsule-container">
-          </div>
+   
 
 
           <div className="agents-container">

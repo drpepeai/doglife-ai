@@ -1,7 +1,9 @@
   /* Container to wrap the grid and text */
   .container {
     position: relative;
+    height: 100%;
     height: 100vh;
+    height: 100dvh;
     background-color: black;
     overflow: hidden;
   }
@@ -10,6 +12,8 @@
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     height: 100%;
+    height: 100vh;
+    height: 100dvh;
     width: 100%;
     position: absolute;
     top: 0;
@@ -31,7 +35,9 @@
   .capsule-image-container{
 
     position: absolute;
+    height: 100%;
     height: 100vh;
+    height: 100dvh;
     width: 50vw;
     top: 0%;
     left:0%;
@@ -52,7 +58,9 @@
   .landing-text-container{
 
     position: absolute;
+    height: 100%;
     height: 100vh;
+    height: 100dvh;
     width: 50vw;
     right: 0;
     display: flex;
@@ -269,8 +277,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 3%;
-      padding-right: 5%;
+
     }
     .mobile-title-subtitle-container{
       width: 100%;
@@ -285,11 +292,20 @@
       width: 100%;
       text-align: center;
     }
+      .mobile-title-img{
+        width: 90%;
+    }
     .mobile-subtitle{
       color: #D1D1D1;
       font-family: 'Cascadia Code',monospace;
       font-size: 1.8vh;
-      padding: 0 2rem 0 2rem;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .mobile-subtitle-text{
+      width: 90%;
     }
     .mobile-pepe-capsule-container{
       width: 100%;
