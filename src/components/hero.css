@@ -228,9 +228,11 @@
 
   .burn-link{
     text-decoration: none;
+    color: #D1D1D1;
   }
   .burn-link:visited{
- color: #D1D1D1;
+    color: inherit; 
+
   }
   /* Default: hide the link */
 .corner-text.top-right {

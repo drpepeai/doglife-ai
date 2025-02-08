@@ -6,6 +6,7 @@
     height: 100dvh;
     display: flex;
     flex-direction: column;align-items: center;
+    background-color: black;
 }
 
 .transferWidget {
@@ -118,4 +119,14 @@ input[type="number"] {
   .bottom-right {
     bottom: 16px;
     right: 16px;
+  }
+
+
+  .burn-link{
+    text-decoration: none;
+    color: #D1D1D1;
+  }
+  .burn-link:visited{
+    color: inherit; 
+
   }
