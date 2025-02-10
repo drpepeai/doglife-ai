@@ -4,7 +4,7 @@
     height: 100%;
     height: 100vh;
     height: 100dvh;
-    background-color: black;
+    background-color:var(--white);
     overflow: hidden;
   }
   /* Elastic grid styles */
@@ -76,7 +76,7 @@
     font-size: 48px;
     font-weight: bold;
     z-index: 10; 
-    color: #D1D1D1;
+    color: var(--black);
     letter-spacing: 2px;
     font-family: 'Cascadia Code',monospace;
 
@@ -84,7 +84,7 @@
   .overlay-text-subtitle-one {
     position: relative;
  
-    color: #D1D1D1;
+    color: var(--black);
     font-family: 'Cascadia Code',monospace;
     font-size: 16px;
     font-weight: 400;
@@ -107,14 +107,15 @@
 
   }
   .human-agent-link:hover{
-    color: white ;
+    color: var(--white);
+    
   }
   .animal-text{
-    color: #d1d1d180 !important;
-    border-bottom: 1px solid #d1d1d180 !important;
+    color: var(--black) !important;
+    border-bottom: 1px solid  var(--black) !important;
   }
   .animal-arrow{
-    color: #d1d1d180 !important;
+    color: var(--black)!important;
   }
   .squarearrow{
     height: 18px;
@@ -122,13 +123,13 @@
   }
   .overlay-text-subtitle-three{
     width: 240px;
-    color: #D1D1D1;
+    color: var(--black);
     font-family: 'Cascadia Code',monospace;
     font-size: 16px;
     font-weight: 400;
     margin-right: 8px;
     letter-spacing: 0.2rem;
-    border-bottom: 1px solid #D1D1D1; 
+    border-bottom: 1px solid var(--black);
     padding: 0px 6px 6px 6px;
     text-align: end;
 
@@ -153,7 +154,7 @@
       align-items:end;
 
 
-      color: #D1D1D1;
+      color: var(--black);
       font-family: 'Cascadia Code',monospace;
 
       width: 100%;
@@ -173,12 +174,12 @@
     left: 0;
     width: 0; /* Start with the line width as 0 */
     height: 1.2px; /* Line thickness */
-    background-color: rgb(255, 255, 255); /* Line color */
+    background-color: var(--black); /* Line color */
     transition: width 0.9s ease; /* Smooth animation for width */
    
   }
   .footer-link-text:hover {
-    color: rgb(220, 220, 220); /* Text color on hover */
+    color: var(--black);
     cursor: crosshair;
   }
   .footer-link-text:hover::after {
@@ -196,7 +197,7 @@
   /* Positioning L's in each corner */
   .corner-text {
     position: absolute;
-    color: #D1D1D1;
+    color: var(--black);
     font-size: 1rem;
     font-family: 'Cascadia Code',monospace;
     font-weight:400;
@@ -228,7 +229,7 @@
 
   .burn-link{
     text-decoration: none;
-    color: #D1D1D1;
+    color: var(--black);
   }
   .burn-link:visited{
     color: inherit; 
@@ -239,7 +240,12 @@
   display: none;
 }
 
-  
+.cta-container-mobile-first{
+  display: none;
+}
+.ca-container-mobile{
+  display: none;
+}
 
   @media (width <= 1500px) {
 
@@ -283,11 +289,11 @@
   }
 
     .text-cta-mobile  a {
-      color: #D1D1D1;  
+      color: var(--black);
       text-decoration: none; 
     }
     .text-cta-mobile  a:visited {
-      color: #D1D1D1
+      color: var(--black);
     }
     .container-top-mobile{
       position: absolute;
@@ -328,7 +334,7 @@
         width: 75%;
     }
     .mobile-subtitle{
-      color: #D1D1D1;
+      color: var(--black);
       font-family: 'Cascadia Code',monospace;
       font-size: 1.8vh;
       width: 100vw;
@@ -365,13 +371,13 @@
 
 
 
-      background-color: #D1D1D1;
+      background-color: var(--black);
       padding: 0.8rem 1rem 0.8rem 1rem;
       border-radius: 24px;
 
     }
     .agent-text-mobile{
-      color: black;
+      color: var(--white);
       font-family: 'Cascadia Code',monospace;
 
       align-items: center;
@@ -385,15 +391,16 @@
     }
  
     .cta-container-mobile-first{
+      display: block;
       width: 100%;
       /*border:2px solid green;*/
       margin-bottom: 0%;
       text-align: center;
 
     }
-    
+
     .text-cta-mobile{
-      color: #D1D1D1;
+      color: var(--black);
       font-family: 'Cascadia Code',monospace;
       padding-bottom: 5%;
       font-size: 1.8vh;
@@ -411,6 +418,7 @@
 
     }
     .ca-container-mobile{
+      display: block;
       width: 100%;
       word-wrap: break-word;
       text-align: center;

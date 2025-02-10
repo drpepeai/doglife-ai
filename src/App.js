@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Hero from './components/Hero';
 import TransferWidget from './components/TransferWidget';
-import PageTransition from './components/PageTransition';
+import PageTransition_one from './components/PageTransition_one';
 // Import Solana wallet adapter components
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
@@ -25,7 +25,7 @@ function App() {
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
           <Router>
-            <PageTransition>
+            <PageTransition_one>
 
               <Routes>
                 <Route path="/" element={<Hero />} />
@@ -33,7 +33,7 @@ function App() {
 
               </Routes>
 
-            </PageTransition>
+            </PageTransition_one>
           </Router>
         </WalletModalProvider>
       </WalletProvider>

@@ -7,13 +7,12 @@ import squarearrow from "../assets/up-right-arrow-grey.svg";
 
 import l_bottom_left from "../assets/l_bottom_left.svg";
 import l_bottom_right from "../assets/l_bottom_right.svg";
-import l_top_right from "../assets/l_top_right.svg";
 import l_top_left from "../assets/l_top_left.svg";
 import doglifeai_title from "../assets/doglife-title-uppercase.svg";
 import TypewriterEffect from "./TypewriterEffect";
 import doggylogo from "../assets/doggylogo.svg";
 import solanalogo_circle from "../assets/solana-logo-s.svg"
-import doggyhead from "../assets/doggyhead.svg"
+import doggyhead from "../assets/fireball.gif"
 
 const Hero = () => {
   const gridRef = useRef(null);

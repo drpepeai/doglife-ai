@@ -8,3 +8,9 @@ html, body {
   margin: 0; 
   padding: 0; 
 }
+
+:root{
+  --black: #1d1d1d;
+  --white: #d1d1d1;
+}
+

@@ -16,6 +16,7 @@
     left: 22%;
 
     z-index: 1;
+    color: #1d1d1d49;
 
   }
   
@@ -28,11 +29,11 @@
 }
 
 /* Different colors for certain paragraphs */
-.grey-10{ color: #bebebe63; } 
-.grey-20 { color: #bebebec2; } 
-.grey-30 { color: #bebebe7d; } 
-.grey-40 { color: #bebebe5a; } 
-.grey-50 { color: #bebebedf; } 
+.grey-10{ color: #1d1d1d67; } 
+.grey-20 { color: #1d1d1d26; } 
+.grey-30 { color: #1d1d1d81; } 
+.grey-40 { color: #1d1d1d50; } 
+.grey-50 { color: #1d1d1d5f; } 
 
 
 

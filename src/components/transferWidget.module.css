@@ -6,17 +6,17 @@
     height: 100dvh;
     display: flex;
     flex-direction: column;align-items: center;
-    background-color: black;
+    background-color:var(--white);
 }
 
 .transferWidget {
     position: absolute;
     top: 15%;
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--black);
     border-radius: 8px;
-    background-color: #1a1a1a;
-    color: #D1D1D1;
+    background-color:var(--white);
+    color:var(--black);
     font-family: 'Cascadia Code',monospace;
     width: 90%;
     max-width: 400px;
@@ -40,8 +40,8 @@
     border-radius: 4px;
     font-size: 12px;
     margin-top: 5px;
-    background-color: #1a1a1a;
-    color: #D1D1D1;
+    background-color: var(--white);
+    color: var(--black);
     font-family: 'Cascadia Code',monospace;
 }
 .inputField:focus {
@@ -59,16 +59,17 @@ input[type="number"] {
 .transferButton {
     width: 100%;
     padding: 10px;
-    background-color: #1e1e1e;
-    border: 1px solid #D1D1D1;
+    background-color: var(--white);
+    border: 1px solid var(--black);
     border-radius: 8px;
-    color: #D1D1D1;
+    color: var(--black);
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
 .transferButton:hover {
-    background-color: #252525;
+    background-color: var(--black);
+    color: var(--white);
 }
 .percentageContainer {
     display: flex;
@@ -78,11 +79,11 @@ input[type="number"] {
 .percentageContainer button {
     padding: 4px 8px;
     background-color:transparent;
-    border: 0.5px solid #d1d1d1;
+    border: 0.5px solid var(--black);
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
-    color: #D1D1D1;
+    color: var(--black);
 }
 .percentageContainer_button{
     background-color: transparent;
@@ -94,7 +95,7 @@ input[type="number"] {
   /* Positioning L's in each corner */
   .corner-text {
     position: absolute;
-    color: #D1D1D1;
+    color: var(--black);
     font-size: 1rem;
     font-family: 'Cascadia Code',monospace;
     font-weight:400;
@@ -124,7 +125,7 @@ input[type="number"] {
 
   .burn-link{
     text-decoration: none;
-    color: #D1D1D1;
+    color:var(--black);
   }
   .burn-link:visited{
     color: inherit; 

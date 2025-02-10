@@ -8,11 +8,16 @@ const PageTransition = ({ children }) => {
   const location = useLocation();
 
   useEffect(() => {
-    // Animate on route change
     gsap.fromTo(
       containerRef.current,
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 0.1 }
+      { opacity: 0, y: 50, scale: 0.95 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.7,
+        ease: "power3.out"
+      }
     );
   }, [location]);
 
