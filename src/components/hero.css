@@ -308,14 +308,18 @@
     }
     .mobile-logo-wired-container{
       width: 100%;
+      height: 50%;
       /*border: 2px solid rgb(76, 0, 255);*/
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
 
     }
     .mobile-logo-wired-container img{
-      width: 80%;
+      width: 100%;
+      height: auto; /* Maintains aspect ratio */
+      object-fit: contain;
     }
     .mobile-title-subtitle-container{
       width: 100%;

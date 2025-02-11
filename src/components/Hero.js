@@ -12,7 +12,7 @@ import doglifeai_title from "../assets/doglife-title-uppercase.svg";
 import TypewriterEffect from "./TypewriterEffect";
 import doggylogo from "../assets/doggylogo.svg";
 import solanalogo_circle from "../assets/solana-logo-s.svg"
-import doggyhead from "../assets/fireball.gif"
+import doggyhead from "../assets/MichaelDog.gif"
 
 const Hero = () => {
   const gridRef = useRef(null);
@@ -154,6 +154,8 @@ const Hero = () => {
       <div className="container-top-desktop">
 
             <div className="capsule-image-container">
+            <img src={doggyhead} alt="doggyhead"/>
+
             <TypewriterEffect />
             </div>
 
@@ -210,7 +212,7 @@ const Hero = () => {
       {/* Top mobile */}
       <div className="container-top-mobile">
           <div className="mobile-logo-wired-container">
-    <img src={doggyhead} alt="doggyhead"  />
+    <img src={doggyhead} alt="doggyhead"/>
           </div>
           <TypewriterEffect />
 

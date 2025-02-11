@@ -27,13 +27,12 @@
     word-wrap: break-word;
     text-align: justify;
 }
+.grey-10 { color: #8c8c8c24; } /* ~60% opacity */
+.grey-20 { color: #8c8c8c15; } /* ~40% opacity */
+.grey-30 { color: #8c8c8c51; } /* ~50% opacity */
+.grey-40 { color: #8c8c8c4d; } /* ~30% opacity */
+.grey-50 { color: #8c8c8c17; } /* ~20% opacity */
 
-/* Different colors for certain paragraphs */
-.grey-10{ color: #1d1d1d67; } 
-.grey-20 { color: #1d1d1d26; } 
-.grey-30 { color: #1d1d1d81; } 
-.grey-40 { color: #1d1d1d50; } 
-.grey-50 { color: #1d1d1d5f; } 
 
 
 
