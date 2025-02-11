@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from "react-router-dom"; 
 import l_bottom_left from "../assets/l_bottom_left.svg";
 import l_bottom_right from "../assets/l_bottom_right.svg";
-import camping_on_fire from "../assets/camping_on_fire.gif";
 
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
@@ -215,9 +214,7 @@ const TransferWidget = () => {
                     </button>
                 </div>
 
-                <div className={styles.fire_container}>
-                    <img src={camping_on_fire} alt='fire' />
-                </div>
+             
             </div>
         </>
     );

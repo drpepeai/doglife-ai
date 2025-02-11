@@ -1,21 +1,22 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom"; // Import Link
 
-
 import "./hero.css";
-import squarearrow from "../assets/up-right-arrow-grey.svg";
+
 
 import l_bottom_left from "../assets/l_bottom_left.svg";
 import l_bottom_right from "../assets/l_bottom_right.svg";
 import l_top_left from "../assets/l_top_left.svg";
-import doglifeai_title from "../assets/Title_DogLife_ai.svg";
-import TypewriterEffect from "./TypewriterEffect";
+import doglifeai_title from "../assets/Doglife_funky_title.svg";
+
 import doggylogo from "../assets/doggylogo.svg";
-import solanalogo_circle from "../assets/solana-logo-s.svg"
-import doggyhead from "../assets/MichaelDog.gif"
+
+import doggyhead from "../assets/doggy_head_gold.gif"
 
 const Hero = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const gridRef = useRef(null);
+  const dropdownRef = useRef(null);
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   const openTelegramLink = () => {
@@ -55,36 +56,25 @@ const Hero = () => {
       window.open(webLink, '_blank', 'noopener noreferrer');
     }
   }
-
-
-
-
-
-  const fullCA = "000000000000000000000000000000000000000000";
-  const [contractAddress, setContractAddress] = useState(fullCA);
-
-  const truncateAddress = () => {
-    const width = window.innerWidth;
-    
-    if (width < 1200) {
-      setContractAddress(fullCA.slice(0, 6) + "..." + fullCA.slice(-4)); // Shortest truncation
-    } else if (width < 1300) {
-      setContractAddress(fullCA.slice(0, 10) + "..." + fullCA.slice(-6)); // Medium truncation
-    } else if (width < 1400) {
-      setContractAddress(fullCA.slice(0, 14) + "..." + fullCA.slice(-8)); // Longer truncation
-    } else {
-      setContractAddress(fullCA); // Full address on larger screens
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+  const closeDropdown = (e) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      setDropdownOpen(false);
     }
   };
 
   useEffect(() => {
+    document.addEventListener("click", closeDropdown);
+    return () => {
+      document.removeEventListener("click", closeDropdown);
+    };
+  }, []);
 
+  useEffect(() => {
 
     const gridItems = gridRef.current.querySelectorAll(".grid-item");
-
-    truncateAddress(); // Initial check
-    window.addEventListener("resize", truncateAddress);
-    
 
     // Elastic grid animation
     const handleMouseMove = (e) => {
@@ -118,16 +108,12 @@ const Hero = () => {
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseleave", handleMouseLeave);
-      window.removeEventListener("resize", truncateAddress);
 
-    
     };
   }, []);
 
-
   return (
     <div className="container">
-
 
       {/* Grid */}
       <div ref={gridRef} className="elastic-grid">
@@ -135,6 +121,8 @@ const Hero = () => {
           <div key={index} className="grid-item" />
         ))}
       </div>
+
+
       {/* 4 Corner Words */}
       <div className="corner-text bottom-left">
         <img src={l_bottom_left} alt="l" height={15} />
@@ -146,69 +134,82 @@ const Hero = () => {
         <img src={l_top_left} alt="l" height={15} />
       </div>
       <div className="corner-text top-right">
-      <Link to="/transfer-widget" className="burn-link">
+        <Link to="/transfer-widget" className="burn-link">
           BUY DOGLIFEAI
         </Link>
       </div>
+
+
+
+
+
+
       {/* Top desktop */}
       <div className="container-top-desktop">
 
-            <div className="logo-wired">
-              <img src={doggylogo} alt="drpepe logo" width={70} />
+           {/* Dropdown Menu on Desktop */}
+            <div className="desktop-dropdown">
+              <div className="logo-wired" ref={dropdownRef}>
+                <img src={doggylogo} alt="drpepe logo" width={70} onClick={toggleDropdown} className="doggylogo" />
+                {dropdownOpen && (
+                  <div className="dropdown-menu">
+                    <div onClick={() => window.open('tg://resolve?domain=drpepeaiOFFICIAL', '_blank')} className="dropdown-item">Join The Community</div>
+                    <div onClick={() => window.open('https://x.com/DogLifeAI', '_blank')} className="dropdown-item">X @doglifeai</div>
+                    <div onClick={() => window.open('https://drpepe.typeform.com/EternalsProgram', '_blank')} className="dropdown-item">Become an Ambassador</div>
+                    <div onClick={() => window.open('https://docs.drpepe.ai/', '_blank')} className="dropdown-item">Docs</div>
+                  </div>
+                )}
+              </div>
             </div>
 
             <div className="capsule-image-container">
               <img src={doggyhead} alt="doggyhead"/>
-              <TypewriterEffect />
             </div>
 
             <div className="landing-text-container">
 
               <div className="overlay-text-title">
-                <img src={doglifeai_title} alt="DOG LIFE AI" width={300} />
+                <img src={doglifeai_title} alt="DOG LIFE AI" width={400} />
               </div>
               <div className="overlay-text-subtitle-one">
-                An AI Agent for dog immortality ﹝because humans are weird﹞
+                <div>
+                  Help dogs live forever ( because humans are weird ) 
+                </div>
+          
+                <br/>
+                <div className="desktop-third-title">
+                 an AI agent by DrPepe.ai
+                </div>
               </div>
               <div className="agents-container">
                 <div className="square-arrow-text-container">
 
-                  <div onClick={openDogAgent} className="overlay-text-subtitle-three human-agent-link"> Dog Agent v.0 1</div>
-                  <img src={squarearrow} alt="squarearrow" className="squarearrow" />
+                  <div onClick={openDogAgent} className="overlay-text-subtitle-three human-agent-link"> DOG AGENT V.0 1</div>
 
                 </div>
+
+                <Link to="/transfer-widget" className="square-arrow-text-container">
+                    <span className="overlay-text-subtitle-three human-agent-link">
+                  
+                      <span>BUY WITH $BRYAN</span>
+
+                    </span>
+                      
+                </Link>
               </div>
 
             </div>
-      </div>
-      {/* Bottom desktop */}
-      <div className="landing-cta-container">
-
-
-
-               
-                  <Link to="/transfer-widget" className="footer-link-text solana-ca-container">
-                    <span>
-                      <img src={solanalogo_circle} alt="solana logo" height={12} style={{ marginRight: "8px" }} /> 
-                  
-                      <span style={{ fontSize: "16px" }}>BUY DOGLIFEAI WITH BRYAN</span>
-                    </span>
-                      
-                  </Link>
-
-                <div onClick={openTelegramLink}  className="footer-link-text ">﹝Join The Community﹞</div>
-                <div onClick={openXLink} className="footer-link-text">﹝X @doglifeai﹞</div>
-                <div onClick={openAmbassadorLink} className="footer-link-text">﹝Become an Ambassador﹞</div>
-                <div onClick={openDocsLink} className="footer-link-text">﹝Docs﹞</div>
 
       </div>
+
+   
+  
 
       {/* Top mobile */}
       <div className="container-top-mobile">
           <div className="mobile-logo-wired-container">
-    <img src={doggyhead} alt="doggyhead"/>
+            <img src={doggyhead} alt="doggyhead"/>
           </div>
-          <TypewriterEffect />
 
 
         <div className="mobile-container-top-two">

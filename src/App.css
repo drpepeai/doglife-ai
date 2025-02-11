@@ -11,6 +11,9 @@ html, body {
 
 :root{
   --white: #131313;
-  --black: #d1d1d1;
+  --black: #eaeaea;
+
+  --font-sm-text: "Road Rage", serif;
+
 }
 
