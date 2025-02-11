@@ -8,7 +8,7 @@ import squarearrow from "../assets/up-right-arrow-grey.svg";
 import l_bottom_left from "../assets/l_bottom_left.svg";
 import l_bottom_right from "../assets/l_bottom_right.svg";
 import l_top_left from "../assets/l_top_left.svg";
-import doglifeai_title from "../assets/doglife-title-uppercase.svg";
+import doglifeai_title from "../assets/Title_DogLife_ai.svg";
 import TypewriterEffect from "./TypewriterEffect";
 import doggylogo from "../assets/doggylogo.svg";
 import solanalogo_circle from "../assets/solana-logo-s.svg"
@@ -147,44 +147,36 @@ const Hero = () => {
       </div>
       <div className="corner-text top-right">
       <Link to="/transfer-widget" className="burn-link">
-          BURN $BRYAN
+          BUY DOGLIFEAI
         </Link>
       </div>
       {/* Top desktop */}
       <div className="container-top-desktop">
 
-            <div className="capsule-image-container">
-            <img src={doggyhead} alt="doggyhead"/>
+            <div className="logo-wired">
+              <img src={doggylogo} alt="drpepe logo" width={70} />
+            </div>
 
-            <TypewriterEffect />
+            <div className="capsule-image-container">
+              <img src={doggyhead} alt="doggyhead"/>
+              <TypewriterEffect />
             </div>
 
             <div className="landing-text-container">
 
-              <div className="logo-wired">
-                <img src={doggylogo} alt="drpepe logo" width={70} />
-              </div>
-
               <div className="overlay-text-title">
                 <img src={doglifeai_title} alt="DOG LIFE AI" width={300} />
               </div>
-
               <div className="overlay-text-subtitle-one">
-              An AI Agent for dog immortality ﹝because humans are weird﹞
+                An AI Agent for dog immortality ﹝because humans are weird﹞
               </div>
-
-
               <div className="agents-container">
-
                 <div className="square-arrow-text-container">
 
                   <div onClick={openDogAgent} className="overlay-text-subtitle-three human-agent-link"> Dog Agent v.0 1</div>
-          
                   <img src={squarearrow} alt="squarearrow" className="squarearrow" />
+
                 </div>
-
-
-
               </div>
 
             </div>
@@ -192,15 +184,17 @@ const Hero = () => {
       {/* Bottom desktop */}
       <div className="landing-cta-container">
 
+
+
                
-                  <div onClick={openJupiter} className="footer-link-text solana-ca-container">
+                  <Link to="/transfer-widget" className="footer-link-text solana-ca-container">
                     <span>
                       <img src={solanalogo_circle} alt="solana logo" height={12} style={{ marginRight: "8px" }} /> 
                   
-                      <span style={{ fontSize: "16px" }}>BUY ON SOLANA</span>
+                      <span style={{ fontSize: "16px" }}>BUY DOGLIFEAI WITH BRYAN</span>
                     </span>
-                      CA: {contractAddress}
-                  </div>
+                      
+                  </Link>
 
                 <div onClick={openTelegramLink}  className="footer-link-text ">﹝Join The Community﹞</div>
                 <div onClick={openXLink} className="footer-link-text">﹝X @doglifeai﹞</div>
@@ -228,7 +222,7 @@ const Hero = () => {
             <div className="mobile-subtitle">
               <div className="mobile-subtitle-text">
 
-                An AI Agent for dog immortality ﹝because humans are weird﹞
+              An AI agent to help dogs live forever ﹝because humans are weird﹞
               </div>
             </div>
             
