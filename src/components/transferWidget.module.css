@@ -15,7 +15,7 @@
     padding: 20px;
     border: 1px solid var(--black);
     border-radius: 8px;
-    background-color:var(--white);
+    background-color:#1313133d;
     color:var(--black);
     font-family: 'Cascadia Code',monospace;
     width: 90%;
@@ -35,6 +35,9 @@
     display: flex;
     flex-direction: column;
 }
+.inputLabel{
+font-size: 12px;
+}
 .inputField {
     padding: 10px;
     border-radius: 4px;
@@ -43,6 +46,7 @@
     background-color: var(--white);
     color: var(--black);
     font-family: 'Cascadia Code',monospace;
+    border: 1px solid grey;
 }
 .inputField:focus {
     outline: none;
@@ -121,8 +125,6 @@ input[type="number"] {
     bottom: 16px;
     right: 16px;
   }
-
-
   .burn-link{
     text-decoration: none;
     color:var(--black);
@@ -130,4 +132,12 @@ input[type="number"] {
   .burn-link:visited{
     color: inherit; 
 
+  }
+
+
+  /*fire*/
+
+  .fire_container{
+    position: absolute;
+    bottom: 0%;
   }

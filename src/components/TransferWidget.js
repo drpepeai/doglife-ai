@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom"; // Import Link
-
-
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from "react-router-dom"; 
 import l_bottom_left from "../assets/l_bottom_left.svg";
 import l_bottom_right from "../assets/l_bottom_right.svg";
-import l_top_right from "../assets/l_top_right.svg";
-import l_top_left from "../assets/l_top_left.svg";
+import camping_on_fire from "../assets/camping_on_fire.gif";
 
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
@@ -16,13 +13,14 @@ import {
     createAssociatedTokenAccountInstruction,
     TOKEN_PROGRAM_ID,
 } from '@solana/spl-token';
+
 import styles from './transferWidget.module.css';
 import './walletMultiButton.css';
 import '@solana/wallet-adapter-react-ui/styles.css';
 
-// Your custom $BRYAN token constants
+// Token Constants
 const TOKEN_MINT_ADDRESS = 'BrYANThKaAbjZZH5XWLrw26NzMbfUNmBwbZiMe4Fj5Mk';
-const TOKEN_DECIMALS = 9; // Adjust this if your token uses a different decimal precision
+const TOKEN_DECIMALS = 9; 
 
 const TransferWidget = () => {
     const { connection } = useConnection();
@@ -30,8 +28,8 @@ const TransferWidget = () => {
     const [recipient, setRecipient] = useState('');
     const [amount, setAmount] = useState('');
     const [balance, setBalance] = useState(null);
+    const gridRef = useRef(null);
 
-    // Fetch the token balance when the wallet connects or the connection changes.
     useEffect(() => {
         if (!publicKey) {
             setBalance(null);
@@ -40,11 +38,8 @@ const TransferWidget = () => {
         const fetchBalance = async () => {
             try {
                 const mintPublicKey = new PublicKey(TOKEN_MINT_ADDRESS);
-                // Derive the associated token account for the connected wallet
                 const tokenAccountAddress = await getAssociatedTokenAddress(mintPublicKey, publicKey);
-                // Get the token account balance
                 const balanceInfo = await connection.getTokenAccountBalance(tokenAccountAddress);
-                // Use uiAmount for a human-friendly display
                 setBalance(balanceInfo.value.uiAmount || 0);
             } catch (error) {
                 console.error('Failed to fetch token balance:', error);
@@ -54,6 +49,45 @@ const TransferWidget = () => {
         fetchBalance();
     }, [publicKey, connection]);
 
+    useEffect(() => {
+        if (!gridRef.current) return;
+
+        const gridItems = gridRef.current.querySelectorAll(".grid-item");
+
+        // Grid animation
+        const handleMouseMove = (e) => {
+            const { clientX, clientY } = e;
+            gridItems.forEach((item) => {
+                const rect = item.getBoundingClientRect();
+                const distanceX = clientX - (rect.left + rect.width / 2);
+                const distanceY = clientY - (rect.top + rect.height / 2);
+                const distance = Math.hypot(distanceX, distanceY);
+
+                const maxDistance = 200;
+                const intensity = 1 - Math.min(distance / maxDistance, 1);
+
+                const translateX = -intensity * (distanceX / distance) * 20;
+                const translateY = -intensity * (distanceY / distance) * 20;
+
+                item.style.transform = `translate(${translateX}px, ${translateY}px)`;
+            });
+        };
+
+        const handleMouseLeave = () => {
+            gridItems.forEach((item) => {
+                item.style.transform = "translate(0, 0)";
+            });
+        };
+
+        document.addEventListener("mousemove", handleMouseMove);
+        document.addEventListener("mouseleave", handleMouseLeave);
+
+        return () => {
+            document.removeEventListener("mousemove", handleMouseMove);
+            document.removeEventListener("mouseleave", handleMouseLeave);
+        };
+    }, []);
+
     const handleTransfer = async () => {
         if (!publicKey) {
             alert('Please connect your wallet');
@@ -61,54 +95,36 @@ const TransferWidget = () => {
         }
 
         try {
-            // Create PublicKey objects for the mint and recipient
             const mintPublicKey = new PublicKey(TOKEN_MINT_ADDRESS);
             const recipientPubKey = new PublicKey(recipient);
-
-            // Derive the sender's associated token account for $BRYAN
-            const senderTokenAddress = await getAssociatedTokenAddress(
-                mintPublicKey,
-                publicKey
-            );
-
-            // Derive the recipient's associated token account for $BRYAN
-            const recipientTokenAddress = await getAssociatedTokenAddress(
-                mintPublicKey,
-                recipientPubKey
-            );
-
-            // Start building the transaction
+            const senderTokenAddress = await getAssociatedTokenAddress(mintPublicKey, publicKey);
+            const recipientTokenAddress = await getAssociatedTokenAddress(mintPublicKey, recipientPubKey);
             const transaction = new Transaction();
 
-            // If the recipient's token account does not exist, add an instruction to create it
             const accountInfo = await connection.getAccountInfo(recipientTokenAddress);
             if (!accountInfo) {
                 transaction.add(
                     createAssociatedTokenAccountInstruction(
-                        publicKey,             // Payer of the account creation fee
-                        recipientTokenAddress, // New associated token account
-                        recipientPubKey,       // Owner of the token account
-                        mintPublicKey          // Token mint
+                        publicKey,
+                        recipientTokenAddress,
+                        recipientPubKey,
+                        mintPublicKey
                     )
                 );
             }
 
-            // Convert the amount from a human-readable number to the token’s smallest unit
             const tokenAmount = Math.floor(parseFloat(amount) * Math.pow(10, TOKEN_DECIMALS));
-
-            // Add the transfer instruction
             transaction.add(
                 createTransferInstruction(
-                    senderTokenAddress,    // Sender's associated token account
-                    recipientTokenAddress, // Recipient's associated token account
-                    publicKey,             // Owner of the sender's account
-                    tokenAmount,           // Amount to transfer (in smallest unit)
+                    senderTokenAddress,
+                    recipientTokenAddress,
+                    publicKey,
+                    tokenAmount,
                     [],
-                    TOKEN_PROGRAM_ID       // SPL Token Program ID
+                    TOKEN_PROGRAM_ID
                 )
             );
 
-            // Send and confirm the transaction
             const signature = await sendTransaction(transaction, connection);
             await connection.confirmTransaction(signature, 'confirmed');
 
@@ -119,91 +135,90 @@ const TransferWidget = () => {
         }
     };
 
-    // This handler ensures that only numbers (and at most one decimal point) can be entered.
     const handleAmountChange = (e) => {
         const { value } = e.target;
-        // Allow empty value or a valid number with an optional single decimal point
         if (value === '' || /^\d*\.?\d*$/.test(value)) {
             setAmount(value);
         }
     };
 
-    // Set the amount based on a percentage of the balance.
     const handlePercentageClick = (percent) => {
         if (balance !== null) {
-            // Optionally, round to a desired number of decimal places.
             setAmount((balance * percent).toString());
         }
     };
 
     return (
         <>
-        <div className={styles.transferWidget_container}>
+            <div>
+                {/* Grid Background */}
+                <div ref={gridRef} className="elastic-grid">
+                    {[...Array(64)].map((_, index) => (
+                        <div key={index} className="grid-item" />
+                    ))}
+                </div>
 
-
-       <div>
-
-      {/* 4 Corner Words */}
-      <div className="corner-text bottom-left">
-        <img src={l_bottom_left} alt="l" height={15} />
-      </div>
-      <div className="corner-text bottom-right">
-        <img src={l_bottom_right} alt="l" height={15} />
-      </div>
-      <div className="corner-text top-left">
-      <Link to="/" className="burn-link">
-            HOME
-        </Link>
-      </div>
-      <div className="corner-text top-right">
-      
-            <WalletMultiButton className={styles.walletButton} />
-      </div>
-       </div>
-        <div className={styles.transferWidget}>
-            <div>Transfer $BRYAN</div>
-            {/* Display the available balance if it's been fetched */}
-            {balance !== null && (
-                <div className={styles.balanceText}>Balance: {balance} $BRYAN</div>
-            )}
-            <br/>
-            <div className={styles.formGroup}>
-                <label htmlFor="recipient">Recipient Wallet Address</label>
-                <input
-                    id="recipient"
-                    type="text"
-                    placeholder="Enter recipient address"
-                    value={recipient}
-                    onChange={(e) => setRecipient(e.target.value)}
-                    className={styles.inputField}
-                />
+                {/* 4 Corner Words */}
+                <div className="corner-text bottom-left">
+                    <img src={l_bottom_left} alt="l" height={15} />
+                </div>
+                <div className="corner-text bottom-right">
+                    <img src={l_bottom_right} alt="l" height={15} />
+                </div>
+                <div className="corner-text top-left">
+                    <Link to="/" className="burn-link">HOME</Link>
+                </div>
+                <div className="corner-text top-right">
+                    <WalletMultiButton className={styles.walletButton} />
+                </div>
             </div>
-            <div className={styles.formGroup}>
-                <label htmlFor="amount">Amount ($BRYAN)</label>
-                <input
-                    id="amount"
-                    type="text"
-                    placeholder="Enter amount"
-                    value={amount}
-                    onChange={handleAmountChange}
-                    className={styles.inputField}
-                />
-                {/* Percentage buttons */}
-                {balance !== null && (
-                    <div className={styles.percentageContainer}>
-                        <button  onClick={() => handlePercentageClick(0.1)}>10%</button>
-                        <button onClick={() => handlePercentageClick(0.2)}>20%</button>
-                        <button onClick={() => handlePercentageClick(0.5)}>50%</button>
-                        <button onClick={() => handlePercentageClick(1)}>100%</button>
+
+            <div className={styles.transferWidget_container}>
+                <div className={styles.transferWidget}>
+                    <div>Transfer $BRYAN</div>
+                    {balance !== null && (
+                        <div className={styles.balanceText}>Balance: {balance} $BRYAN</div>
+                    )}
+                    <br />
+                    <div className={styles.formGroup}>
+                        <label className={styles.inputLabel} htmlFor="recipient">Recipient Wallet Address</label>
+                        <input
+                            id="recipient"
+                            type="text"
+                            placeholder="Enter recipient address"
+                            value={recipient}
+                            onChange={(e) => setRecipient(e.target.value)}
+                            className={styles.inputField}
+                        />
                     </div>
-                )}
-            </div>
-            <button onClick={handleTransfer} className={styles.transferButton}>
-                Transfer
-            </button>
-        </div>
+                    <div className={styles.formGroup}>
+                        <label   className={styles.inputLabel} htmlFor="amount">Amount ($BRYAN)</label>
+                        <input
+                            id="amount"
+                            type="text"
+                            placeholder="Enter amount"
+                            value={amount}
+                            onChange={handleAmountChange}
+                            className={styles.inputField}
+                        />
+                        {balance !== null && (
+                            <div className={styles.percentageContainer}>
+                                <button onClick={() => handlePercentageClick(0.1)}>10%</button>
+                                <button onClick={() => handlePercentageClick(0.2)}>20%</button>
+                                <button onClick={() => handlePercentageClick(0.5)}>50%</button>
+                                <button onClick={() => handlePercentageClick(1)}>100%</button>
+                            </div>
+                        )}
+                    </div>
+                    <button onClick={handleTransfer} className={styles.transferButton}>
+                        Transfer
+                    </button>
+                </div>
 
-        </div>
+                <div className={styles.fire_container}>
+                    <img src={camping_on_fire} alt='fire' />
+                </div>
+            </div>
         </>
     );
 };
