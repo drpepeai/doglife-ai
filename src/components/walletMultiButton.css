@@ -13,7 +13,7 @@
     position: fixed !important;
     top: 20px;
     right: 20px;
-    font-family: 'Cascadia Code',monospace;
+    font-family: var(--font-sm-text);
     font-size: 12px !important;
   }
   .wallet-adapter-button-trigger {
@@ -21,7 +21,7 @@
   }
   .wallet-adapter-button{
     height: 40px !important;
-    font-family: 'Cascadia Code',monospace;
+    font-family: var(--font-sm-text);
     font-size: 12px !important;
     color: var(--black) !important;
   }

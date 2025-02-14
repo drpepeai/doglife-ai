@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom"; // Import Link
+import drpepetitle from "../assets/Ai-agent-by-drp.svg"
 
 import "./hero.css";
 
@@ -11,7 +12,7 @@ import doglifeai_title from "../assets/Doglife_funky_title.svg";
 
 import doggylogo from "../assets/doggylogo.svg";
 
-import doggyhead from "../assets/doggy_head_gold.gif"
+import doggyhead from "../assets/doggy_head_gold_centered.gif"
 
 const Hero = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -118,26 +119,13 @@ const Hero = () => {
       {/* Grid */}
       <div ref={gridRef} className="elastic-grid">
         {[...Array(64)].map((_, index) => (
-          <div key={index} className="grid-item" />
+          <div key={index} className="" />
         ))}
       </div>
 
 
-      {/* 4 Corner Words */}
-      <div className="corner-text bottom-left">
-        <img src={l_bottom_left} alt="l" height={15} />
-      </div>
-      <div className="corner-text bottom-right">
-        <img src={l_bottom_right} alt="l" height={15} />
-      </div>
-      <div className="corner-text top-left">
-        <img src={l_top_left} alt="l" height={15} />
-      </div>
-      <div className="corner-text top-right">
-        <Link to="/transfer-widget" className="burn-link">
-          BUY DOGLIFEAI
-        </Link>
-      </div>
+  
+   
 
 
 
@@ -169,29 +157,32 @@ const Hero = () => {
             <div className="landing-text-container">
 
               <div className="overlay-text-title">
-                <img src={doglifeai_title} alt="DOG LIFE AI" width={400} />
+                <img src={doglifeai_title} alt="DOG LIFE AI" width={450} />
               </div>
               <div className="overlay-text-subtitle-one">
                 <div>
-                  Help dogs live forever ( because humans are weird ) 
+                  Help dogs live forever
+                </div>
+                <div>
+                 ( because humans are weird ) 
                 </div>
           
-                <br/>
+             
                 <div className="desktop-third-title">
-                 an AI agent by DrPepe.ai
+                <span><img src={drpepetitle} alt="drpepe.ai title" width={300}/></span>
                 </div>
               </div>
               <div className="agents-container">
                 <div className="square-arrow-text-container">
 
-                  <div onClick={openDogAgent} className="overlay-text-subtitle-three human-agent-link"> DOG AGENT V.0 1</div>
+                  <div onClick={openDogAgent} className="button-85"> DOG AGENT v.0 1</div>
 
                 </div>
 
                 <Link to="/transfer-widget" className="square-arrow-text-container">
-                    <span className="overlay-text-subtitle-three human-agent-link">
+                    <span className="buy-bryan-link">
                   
-                      <span>BUY WITH $BRYAN</span>
+                 BUY WITH $BRYAN
 
                     </span>
                       
@@ -203,67 +194,6 @@ const Hero = () => {
       </div>
 
    
-  
-
-      {/* Top mobile */}
-      <div className="container-top-mobile">
-          <div className="mobile-logo-wired-container">
-            <img src={doggyhead} alt="doggyhead"/>
-          </div>
-
-
-        <div className="mobile-container-top-two">
-
-          <div className="mobile-title-subtitle-container">
-
-            <div className="mobile-title"> 
-              <img src={doglifeai_title} alt="DOG LIFE AI" className="mobile-title-img" />
-            </div>
-
-            <div className="mobile-subtitle">
-              <div className="mobile-subtitle-text">
-
-              An AI agent to help dogs live forever ﹝because humans are weird﹞
-              </div>
-            </div>
-            
-          </div>
-
-
-   
-
-
-
-        </div>
-
-        <div className="agents-container">
-          <div className="mobile-agent-text-arrow-container">
-            <div   onClick={openDogAgent} className="agent-text-mobile">Dog Agent v.0 1</div>
-            
-          </div>
-        </div>
-      </div>
-
-
-      {/* Bottom mobile */}
-      <div className="landing-cta-mobile-container">
-
-      <div className="cta-container-mobile-first">
-            <div  onClick={openJupiter}  className="text-cta-mobile parenthesis-text">﹝Buy on Solana﹞</div>
-            <div  onClick={openXLink}  className="text-cta-mobile parenthesis-text">﹝Follow on X @doglifeai﹞</div>
-            <div onClick={openTelegramLink} className="text-cta-mobile parenthesis-text">﹝Join Telegram﹞</div>
-            <div  onClick={openAmbassadorLink}  className="text-cta-mobile parenthesis-text">﹝Become an Ambassador﹞</div>
-            <div  onClick={openDocsLink} className="text-cta-mobile cta-docs-mobile ">﹝Docs﹞</div>
-
-      </div>
-
-
-
-      <div className="ca-container-mobile">
-        <div  className="text-cta-mobile ca-mobile">CA:000000000000000000000000000000000000000000</div>
-      </div>
-
-      </div>
 
     </div>
   );

@@ -17,7 +17,7 @@
     border-radius: 8px;
     background-color:#1313133d;
     color:var(--black);
-    font-family: 'Cascadia Code',monospace;
+    font-family: var(--font-sm-text);
     width: 90%;
     max-width: 400px;
 
@@ -28,7 +28,7 @@
     top: 20px;
     right: 20px;
     margin-bottom: 2rem;
-    font-family: 'Cascadia Code',monospace;
+   font-family: var(--font-sm-text);
 }
 .formGroup {
     margin-bottom: 15px;
@@ -45,7 +45,7 @@ font-size: 12px;
     margin-top: 5px;
     background-color: var(--white);
     color: var(--black);
-    font-family: 'Cascadia Code',monospace;
+   font-family: var(--font-sm-text);
     border: 1px solid grey;
 }
 .inputField:focus {
@@ -101,7 +101,7 @@ input[type="number"] {
     position: absolute;
     color: var(--black);
     font-size: 1rem;
-    font-family: 'Cascadia Code',monospace;
+   font-family: var(--font-sm-text);
     font-weight:400;
     z-index: 10000;
   }
