@@ -102,7 +102,7 @@ const Hero = () => {
                 <img src={doggylogo} alt="drpepe logo" width={70} onClick={toggleDropdown} className="doggylogo" />
                 {dropdownOpen && (
                   <div className="dropdown-menu">
-                    <div onClick={() => window.open('tg://resolve?domain=drpepeaiOFFICIAL', '_blank')} className="dropdown-item">Join The Community</div>
+                    <div onClick={() => window.open('tg://resolve?domain=drpepeaiOFFICIAL', '_blank')} className="dropdown-item">Join The Community.</div>
                     <div onClick={() => window.open('https://x.com/DogLifeAI', '_blank')} className="dropdown-item">X @doglifeai</div>
                     <div onClick={() => window.open('https://drpepe.typeform.com/EternalsProgram', '_blank')} className="dropdown-item">Become an Ambassador</div>
                     <div onClick={() => window.open('https://docs.drpepe.ai/', '_blank')} className="dropdown-item">Docs</div>
