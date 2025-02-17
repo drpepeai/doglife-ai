@@ -22,8 +22,8 @@
     background-color: #191412;
   }
   .grid-item {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: #1A120B;
+    border: 1px solid rgba(156, 135, 28, 0.046);
+
     transition: transform 0.5s ease-out;
     z-index: -10;
 
@@ -37,26 +37,7 @@
     font-weight:400;
     z-index: 10000;
   }
-  .top-left {
-    top: 16px;
-    left: 16px;
-  }
-  .top-right {
-    top: 16px;
-    right: 16px;
-  }
-  .bottom-left {
-    bottom: 16px;
-    left: 16px;
-  }
-  .bottom-left-two{
-    bottom: 16px;
-    left: 120px;
-  }
-  .bottom-right {
-    bottom: 16px;
-    right: 16px;
-  }
+ 
   .logo-wired{
     position: fixed;
     top: 45px;
@@ -69,10 +50,10 @@
   }
   .dropdown-item{
     color: var(--black);
-    border: 2px solid var(--black);
-    padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+
+
     margin-top: 1rem;
-    border-radius: 25px;
+text-transform: uppercase;
     width: 220px;
     font-family: var(--font-sm-text);
     font-size: 18px;

@@ -141,3 +141,21 @@ input[type="number"] {
     position: absolute;
     bottom: 0%;
   }
+
+
+  .transferGraph_container{
+    position: absolute;
+    top: 15%;
+    right: 0%;
+    padding: 20px;
+    border: 1px solid var(--black);
+    border-radius: 8px;
+    background-color:#1313133d;
+    color:var(--black);
+    font-family: var(--font-sm-text);
+    width: 90%;
+    max-width: 400px;
+  }
+
+
+  

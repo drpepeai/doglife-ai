@@ -1,7 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from "react-router-dom"; 
-import l_bottom_left from "../assets/l_bottom_left.svg";
-import l_bottom_right from "../assets/l_bottom_right.svg";
 
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
@@ -16,6 +13,10 @@ import {
 import styles from './transferWidget.module.css';
 import './walletMultiButton.css';
 import '@solana/wallet-adapter-react-ui/styles.css';
+
+import BryanTokenStats from './BryanTokenStats';
+
+
 
 // Token Constants
 const TOKEN_MINT_ADDRESS = 'BrYANThKaAbjZZH5XWLrw26NzMbfUNmBwbZiMe4Fj5Mk';
@@ -157,16 +158,8 @@ const TransferWidget = () => {
                     ))}
                 </div>
 
-                {/* 4 Corner Words */}
-                <div className="corner-text bottom-left">
-                    <img src={l_bottom_left} alt="l" height={15} />
-                </div>
-                <div className="corner-text bottom-right">
-                    <img src={l_bottom_right} alt="l" height={15} />
-                </div>
-                <div className="corner-text top-left">
-                    <Link to="/" className="burn-link">HOME</Link>
-                </div>
+            
+          
                 <div className="corner-text top-right">
                     <WalletMultiButton className={styles.walletButton} />
                 </div>
@@ -216,6 +209,14 @@ const TransferWidget = () => {
 
              
             </div>
+
+            <div className={styles.transferGraph_container}>
+
+                <BryanTokenStats/>
+
+                
+            </div>
+
         </>
     );
 };

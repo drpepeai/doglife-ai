@@ -3,15 +3,8 @@ import { Link } from "react-router-dom"; // Import Link
 import drpepetitle from "../assets/Ai-agent-by-drp.svg"
 
 import "./hero.css";
-
-
-import l_bottom_left from "../assets/l_bottom_left.svg";
-import l_bottom_right from "../assets/l_bottom_right.svg";
-import l_top_left from "../assets/l_top_left.svg";
 import doglifeai_title from "../assets/Doglife_funky_title.svg";
-
-import doggylogo from "../assets/doggylogo.svg";
-
+import doggylogo from "../assets/doggy-head-right-top.svg";
 import doggyhead from "../assets/doggy_head_gold_centered.gif"
 
 const Hero = () => {
@@ -20,33 +13,6 @@ const Hero = () => {
   const dropdownRef = useRef(null);
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-  const openTelegramLink = () => {
-    const mobileLink = 'tg://resolve?domain=drpepeaiOFFICIAL'; 
-    const webLink = 'tg://resolve?domain=drpepeaiOFFICIAL'; 
-
-    if (isMobile) {
-      window.location.href = mobileLink;
-    } else {
-      window.open(webLink, '_blank', 'noopener noreferrer');
-    }
-  };
-  const openXLink = () => {
-    const webLink = 'https://x.com/DogLifeAI'; 
-    window.open(webLink, '_blank', 'noopener noreferrer');
-  };
-  const openAmbassadorLink = () => {
-    const webLink = 'https://drpepe.typeform.com/EternalsProgram'; 
-    window.open(webLink, '_blank', 'noopener noreferrer');
-  };
-  const openDocsLink = () => {
-    const webLink = 'https://docs.drpepe.ai/';
-    window.open(webLink, '_blank', 'noopener noreferrer');
-
-  }
-  const openJupiter = () => {
-    const webLink ='https://jup.ag/tokens/BrYANThKaAbjZZH5XWLrw26NzMbfUNmBwbZiMe4Fj5Mk'
-    window.open(webLink, '_blank', 'noopener noreferrer');
-  }
   const openDogAgent = () => {
     const mobileLink = 'tg://resolve?domain=drpepeaiOFFICIAL'; 
     const webLink = 'tg://resolve?domain=drpepeaiOFFICIAL'; 
@@ -113,29 +79,24 @@ const Hero = () => {
     };
   }, []);
 
+
+
+
+  
   return (
     <div className="container">
 
       {/* Grid */}
       <div ref={gridRef} className="elastic-grid">
         {[...Array(64)].map((_, index) => (
-          <div key={index} className="" />
+          <div key={index} className="grid-item" />
         ))}
       </div>
 
 
-  
-   
-
-
-
-
-
-
-      {/* Top desktop */}
       <div className="container-top-desktop">
 
-           {/* Dropdown Menu on Desktop */}
+  
             <div className="desktop-dropdown">
               <div className="logo-wired" ref={dropdownRef}>
                 <img src={doggylogo} alt="drpepe logo" width={70} onClick={toggleDropdown} className="doggylogo" />
@@ -159,6 +120,7 @@ const Hero = () => {
               <div className="overlay-text-title">
                 <img src={doglifeai_title} alt="DOG LIFE AI" width={450} />
               </div>
+
               <div className="overlay-text-subtitle-one">
                 <div>
                   Help dogs live forever
@@ -172,6 +134,7 @@ const Hero = () => {
                 <span><img src={drpepetitle} alt="drpepe.ai title" width={300}/></span>
                 </div>
               </div>
+
               <div className="agents-container">
                 <div className="square-arrow-text-container">
 
