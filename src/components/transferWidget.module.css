@@ -143,7 +143,7 @@ input[type="number"] {
   flex-direction: column-reverse;
   align-items: flex-end;
 }
-.paw-icon {
+.pawicon {
   width: 30px;
   height: 30px;
   cursor: pointer;
@@ -222,9 +222,9 @@ input[type="number"] {
 
 /*menu*/
 
-.to-home{
+.tohome{
   position: fixed;
-  top: 20px;
+  top: 30px;
   left: 20px;
   
 }

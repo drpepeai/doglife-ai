@@ -200,7 +200,7 @@ const TransferWidget = () => {
 
                         <div onClick={toggleDropdown} className="nav-toggle">
                         {menuOpen ? (
-                            <img src={paw} alt="paw icon" className="paw-icon" width={30} />
+                            <img src={paw} alt="paw icon" className={styles.pawicon} width={30} />
                         ) : (
                             <>
                             <span className="bar"></span>
