@@ -13,6 +13,7 @@ import {
 import styles from './transferWidget.module.css';
 import './walletMultiButton.css';
 import '@solana/wallet-adapter-react-ui/styles.css';
+import paw from '../assets/paw.svg';
 
 import BryanTokenStats from './BryanTokenStats';
 
@@ -28,7 +29,10 @@ const TransferWidget = () => {
     const [recipient, setRecipient] = useState('');
     const [amount, setAmount] = useState('');
     const [balance, setBalance] = useState(null);
-    const gridRef = useRef(null);
+
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false); // State for hamburger menu animation
+    const dropdownRef = useRef(null);
 
     useEffect(() => {
         if (!publicKey) {
@@ -49,44 +53,6 @@ const TransferWidget = () => {
         fetchBalance();
     }, [publicKey, connection]);
 
-    useEffect(() => {
-        if (!gridRef.current) return;
-
-        const gridItems = gridRef.current.querySelectorAll(".grid-item");
-
-        // Grid animation
-        const handleMouseMove = (e) => {
-            const { clientX, clientY } = e;
-            gridItems.forEach((item) => {
-                const rect = item.getBoundingClientRect();
-                const distanceX = clientX - (rect.left + rect.width / 2);
-                const distanceY = clientY - (rect.top + rect.height / 2);
-                const distance = Math.hypot(distanceX, distanceY);
-
-                const maxDistance = 200;
-                const intensity = 1 - Math.min(distance / maxDistance, 1);
-
-                const translateX = -intensity * (distanceX / distance) * 20;
-                const translateY = -intensity * (distanceY / distance) * 20;
-
-                item.style.transform = `translate(${translateX}px, ${translateY}px)`;
-            });
-        };
-
-        const handleMouseLeave = () => {
-            gridItems.forEach((item) => {
-                item.style.transform = "translate(0, 0)";
-            });
-        };
-
-        document.addEventListener("mousemove", handleMouseMove);
-        document.addEventListener("mouseleave", handleMouseLeave);
-
-        return () => {
-            document.removeEventListener("mousemove", handleMouseMove);
-            document.removeEventListener("mouseleave", handleMouseLeave);
-        };
-    }, []);
 
     const handleTransfer = async () => {
         if (!publicKey) {
@@ -148,74 +114,137 @@ const TransferWidget = () => {
         }
     };
 
+
+    const toggleDropdown = () => {
+        setDropdownOpen((prev) => !prev);
+        setMenuOpen((prev) => !prev); // Ensure hamburger toggles properly
+      };
+    
+      const closeDropdown = (e) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+          setDropdownOpen(false);
+          setMenuOpen(false); // Ensure hamburger resets if clicked outside
+        }
+      };
+    
+      useEffect(() => {
+        document.addEventListener("click", closeDropdown);
+        return () => {
+          document.removeEventListener("click", closeDropdown);
+        };
+      }, []);
+
     return (
         <>
-            <div>
-                {/* Grid Background */}
-                <div ref={gridRef} className="elastic-grid">
-                    {[...Array(64)].map((_, index) => (
-                        <div key={index} className="grid-item" />
-                    ))}
-                </div>
-
-            
-          
-                <div className="corner-text top-right">
-                    <WalletMultiButton className={styles.walletButton} />
-                </div>
+       
+            <div className="corner-text top-right">
+                <WalletMultiButton className={styles.walletButton} />
             </div>
+            <section className={styles.container_transfer_widget}>
 
-            <div className={styles.transferWidget_container}>
-                <div className={styles.transferWidget}>
-                    <div>Transfer $BRYAN</div>
-                    {balance !== null && (
-                        <div className={styles.balanceText}>Balance: {balance} $BRYAN</div>
-                    )}
-                    <br />
-                    <div className={styles.formGroup}>
-                        <label className={styles.inputLabel} htmlFor="recipient">Recipient Wallet Address</label>
-                        <input
-                            id="recipient"
-                            type="text"
-                            placeholder="Enter recipient address"
-                            value={recipient}
-                            onChange={(e) => setRecipient(e.target.value)}
-                            className={styles.inputField}
-                        />
-                    </div>
-                    <div className={styles.formGroup}>
-                        <label   className={styles.inputLabel} htmlFor="amount">Amount ($BRYAN)</label>
-                        <input
-                            id="amount"
-                            type="text"
-                            placeholder="Enter amount"
-                            value={amount}
-                            onChange={handleAmountChange}
-                            className={styles.inputField}
-                        />
+                <div className={styles.box}>
+           
+                        <div>Transfer $BRYAN</div>
                         {balance !== null && (
-                            <div className={styles.percentageContainer}>
-                                <button onClick={() => handlePercentageClick(0.1)}>10%</button>
-                                <button onClick={() => handlePercentageClick(0.2)}>20%</button>
-                                <button onClick={() => handlePercentageClick(0.5)}>50%</button>
-                                <button onClick={() => handlePercentageClick(1)}>100%</button>
-                            </div>
+                            <div className={styles.balanceText}>Balance: {balance} $BRYAN</div>
                         )}
+                        <br />
+                        <div className={styles.formGroup}>
+                            <label className={styles.inputLabel} htmlFor="recipient">Recipient Wallet Address</label>
+                            <input
+                                id="recipient"
+                                type="text"
+                                placeholder="Enter recipient address"
+                                value={recipient}
+                                onChange={(e) => setRecipient(e.target.value)}
+                                className={styles.inputField}
+                            />
+                        </div>
+                        <div className={styles.formGroup}>
+                            <label   className={styles.inputLabel} htmlFor="amount">Amount ($BRYAN)</label>
+                            <input
+                                id="amount"
+                                type="text"
+                                placeholder="Enter amount"
+                                value={amount}
+                                onChange={handleAmountChange}
+                                className={styles.inputField}
+                            />
+                            {balance !== null && (
+                                <div className={styles.percentageContainer}>
+                                    <button onClick={() => handlePercentageClick(0.1)}>10%</button>
+                                    <button onClick={() => handlePercentageClick(0.2)}>20%</button>
+                                    <button onClick={() => handlePercentageClick(0.5)}>50%</button>
+                                    <button onClick={() => handlePercentageClick(1)}>100%</button>
+                                </div>
+                            )}
+                        </div>
+                        <button onClick={handleTransfer} className={styles.transferButton}>
+                            Transfer
+                        </button>
                     </div>
-                    <button onClick={handleTransfer} className={styles.transferButton}>
-                        Transfer
-                    </button>
+
+                <div className={styles.box}>
+
+                    <BryanTokenStats/>
+
+                    
                 </div>
 
-             
-            </div>
 
-            <div className={styles.transferGraph_container}>
 
-                <BryanTokenStats/>
+                <div className={styles.menu} >
 
-                
-            </div>
+
+                        <div onClick={toggleDropdown} className="nav-toggle">
+                        {menuOpen ? (
+                            <img src={paw} alt="paw icon" className="paw-icon" width={30} />
+                        ) : (
+                            <>
+                            <span className="bar"></span>
+                            <span className="bar"></span>
+                            <span className="bar"></span>
+                            </>
+                        )}
+                        </div>
+                        {dropdownOpen && (
+                        <div className={styles.dropdownmenu}>
+                            <div
+                            onClick={() =>
+                                window.open("tg://resolve?domain=drpepeaiOFFICIAL", "_blank")
+                            }
+                            className="dropdown-item"
+                            >
+                            Join The Community
+                            </div>
+                            <div
+                            onClick={() => window.open("https://x.com/DogLifeAI", "_blank")}
+                            className="dropdown-item"
+                            >
+                            X @doglifeai
+                            </div>
+                            <div
+                            onClick={() =>
+                                window.open("https://drpepe.typeform.com/EternalsProgram", "_blank")
+                            }
+                            className="dropdown-item"
+                            >
+                            Become an Ambassador
+                            </div>
+                            <div
+                            onClick={() => window.open("https://docs.drpepe.ai/", "_blank")}
+                            className="dropdown-item"
+                            >
+                            Docs
+                            </div>
+                        </div>
+                        )}
+                </div>
+
+
+
+            </section>
+
 
         </>
     );
