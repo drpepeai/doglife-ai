@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from "react-router-dom";
+
 
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
@@ -136,17 +138,20 @@ const TransferWidget = () => {
 
     return (
         <>
+
+            <Link to="/" className={styles.tohome}> DogLife.ai</Link>
        
-            <div className="corner-text top-right">
+           
                 <WalletMultiButton className={styles.walletButton} />
-            </div>
+           
+
             <section className={styles.container_transfer_widget}>
 
                 <div className={styles.box}>
            
                         <div>Transfer $bryan to doglife.ai</div>
                         {balance !== null && (
-                            <div className={styles.balanceText}>Balance: {balance} $BRYAN</div>
+                            <div className={styles.balanceText}>Balance: {balance} $bryan</div>
                         )}
                         <br />
                         <div className={styles.formGroup}>
@@ -160,7 +165,7 @@ const TransferWidget = () => {
                             />
                         </div>
                         <div className={styles.formGroup}>
-                            <label   className={styles.inputLabel} htmlFor="amount">Amount ($BRYAN)</label>
+                            <label   className={styles.inputLabel} htmlFor="amount">Amount ($bryan)</label>
                             <input
                                 id="amount"
                                 type="text"
@@ -189,8 +194,6 @@ const TransferWidget = () => {
 
                     
                 </div>
-
-
 
                 <div className={styles.menu} >
 
@@ -239,8 +242,6 @@ const TransferWidget = () => {
                         </div>
                         )}
                 </div>
-
-
 
             </section>
 
