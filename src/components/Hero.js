@@ -85,9 +85,9 @@ const Hero = () => {
                     an Ai agent by DrPepe.ai
                   </div>
           
-                   <div onClick={openDogAgent} className="text-line"> dog agent v.0 1</div>
+                   <div onClick={openDogAgent} className="text-line link-text"> dog agent v.0 1</div>
              
-                   <Link to="/transfer-widget" className="text-line">
+                   <Link to="/transfer-widget" className="text-line link-text">
                       <span className="">
                       buy with $bryan
                       </span>  

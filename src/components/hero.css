@@ -12,13 +12,18 @@
     background-color:var(--white);
     overflow: hidden;
     font-family: var(--font-sm-text);
-    font-size: 14px;
+    font-size: 16px;
     color: var(--black);
   }
   .text-line{
     margin-top: 2rem;
   }
 
+  .link-text{
+    text-decoration: underline;
+    color: inherit;
+    cursor: pointer;
+  }
 
   .logo-wired{
     position: fixed;
@@ -33,11 +38,15 @@
   }
   .doggylogo{
     margin-bottom: 2rem;
+    cursor: pointer;
   }
 
   .dropdown-item{
     margin-bottom: 2rem;
     text-align: right;
+    text-decoration: underline;
+    color: inherit;
+    cursor: pointer;
   }
 
 
