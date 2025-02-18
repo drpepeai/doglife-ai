@@ -23,6 +23,7 @@
     color:var(--black);
     width: 90%;
     max-width: 400px;
+    margin-top: 2rem;
 
 
 }
@@ -135,7 +136,7 @@ input[type="number"] {
 /*menu*/
 .menu{
   position: fixed;
-  bottom: 0px;
+  bottom: 20px;
   right:20px;
   color: var(--black);
 
@@ -225,6 +226,6 @@ input[type="number"] {
 .tohome{
   position: fixed;
   top: 30px;
-  left: 20px;
+  left: 10px;
   
 }
