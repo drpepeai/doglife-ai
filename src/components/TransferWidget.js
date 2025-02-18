@@ -26,7 +26,7 @@ const TOKEN_DECIMALS = 9;
 const TransferWidget = () => {
     const { connection } = useConnection();
     const { publicKey, sendTransaction } = useWallet();
-    const [recipient, setRecipient] = useState('');
+    const [recipient] = useState('1VohKPJc5b1ZMfpzs6RM9hh4S5f55ybWHxw3L8uZ36F');
     const [amount, setAmount] = useState('');
     const [balance, setBalance] = useState(null);
 
@@ -144,7 +144,7 @@ const TransferWidget = () => {
 
                 <div className={styles.box}>
            
-                        <div>Transfer $BRYAN</div>
+                        <div>Transfer $bryan to doglife.ai</div>
                         {balance !== null && (
                             <div className={styles.balanceText}>Balance: {balance} $BRYAN</div>
                         )}
@@ -154,9 +154,8 @@ const TransferWidget = () => {
                             <input
                                 id="recipient"
                                 type="text"
-                                placeholder="Enter recipient address"
+                                placeholder="1VohKPJc5b1ZMfpzs6RM9hh4S5f55ybWHxw3L8uZ36F"
                                 value={recipient}
-                                onChange={(e) => setRecipient(e.target.value)}
                                 className={styles.inputField}
                             />
                         </div>
