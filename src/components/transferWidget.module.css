@@ -1,3 +1,4 @@
+/*Mobile*/
 /* component*/
 
 .container_transfer_widget{
@@ -24,6 +25,7 @@
     width: 90%;
     max-width: 400px;
     margin-top: 2rem;
+    height: 300px;
 
 
 }
@@ -68,7 +70,7 @@ font-size: 12px;
     background-color: var(--white);
     color: var(--black);
     font-family: var(--font-sm-text);
-    border: 1px solid grey;
+    border: 1px solid var(--black);
 }
 .inputField:focus {
     outline: none;
@@ -228,4 +230,26 @@ input[type="number"] {
   top: 30px;
   left: 10px;
   
+}
+
+
+/*Desktop*/
+
+@media (width >= 1000px) {
+  .container_transfer_widget{
+    flex-direction: row;
+
+  }
+  .box{
+    margin-top: 0px;
+    margin-right: 2rem;
+
+  }
+  .boxgraph{
+    border-color: red;
+    min-width: 600px;
+  }
+
+
+
 }

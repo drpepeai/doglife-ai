@@ -48,8 +48,8 @@ const BryanTokenStats = () => {
       ) : tokenData ? (
         <div>
           <div><strong>CA:</strong> 1VohKPJc5b1ZMfpzs6RM9hh4S5f55ybWHxw3L8uZ36F</div>
-          <div><strong>Total $bryan:</strong> </div>
-          <div><strong>Equivalent in $:</strong></div>
+          <div><strong>Total raised in $bryan:</strong> </div>
+          <div><strong>Total raised in USDC:</strong></div>
 
         </div>
       ) : (

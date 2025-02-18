@@ -174,21 +174,22 @@ const TransferWidget = () => {
                                 onChange={handleAmountChange}
                                 className={styles.inputField}
                             />
-                            {balance !== null && (
+                    
                                 <div className={styles.percentageContainer}>
                                     <button onClick={() => handlePercentageClick(0.1)}>10%</button>
                                     <button onClick={() => handlePercentageClick(0.2)}>20%</button>
                                     <button onClick={() => handlePercentageClick(0.5)}>50%</button>
                                     <button onClick={() => handlePercentageClick(1)}>100%</button>
                                 </div>
-                            )}
+                       
                         </div>
                         <button onClick={handleTransfer} className={styles.transferButton}>
                             Transfer
                         </button>
                     </div>
 
-                <div className={styles.box}>
+                <div className={`${styles.box} ${styles.boxgraph}`}
+                >
 
                     <BryanTokenStats/>
 
