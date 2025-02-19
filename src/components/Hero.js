@@ -43,6 +43,7 @@ const Hero = () => {
 
   return (
     <div className="container">
+    <Link to="https://www.drpepe.ai/" className="todrpepeai"> DrPepe.AI</Link>
    {/* Logo and Dropdown Menu */}
    <div className="logo-wired" ref={dropdownRef}>
         <div onClick={toggleDropdown} className="nav-toggle">
@@ -88,7 +89,7 @@ const Hero = () => {
             </div>
           </div>
         )}
-      </div>
+    </div>
 
       {/* Main Content */}
       <img src={doggyhead} alt="doggyhead" width={260} />
@@ -96,14 +97,14 @@ const Hero = () => {
 
       <div className="text-line">Help dogs live forever</div>
       <div className="text-line">( because humans are weird )</div>
-      <div className="text-line">an Ai agent by DrPepe.ai</div>
+      <div className="text-line">an AI agent by DrPepe.AI</div>
 
       <div onClick={openDogAgent} className="text-line link-text">
         dog agent v.0 1
       </div>
 
       <Link to="/transfer-widget" className="text-line link-text">
-        <span>buy with $bryan</span>
+        <span>buy with $BRYAN</span>
       </Link>
     </div>
   );

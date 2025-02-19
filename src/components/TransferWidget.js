@@ -17,7 +17,7 @@ import './walletMultiButton.css';
 import '@solana/wallet-adapter-react-ui/styles.css';
 import paw from '../assets/paw.svg';
 
-import BryanTokenStats from './BryanTokenStats';
+import SolTokenStats from './SolTokenStats';
 
 
 
@@ -139,7 +139,7 @@ const TransferWidget = () => {
     return (
         <>
 
-            <Link to="/" className={styles.tohome}> DogLife.ai</Link>
+            <Link to="/" className={styles.tohome}> DogLife.AI</Link>
        
            
                 <WalletMultiButton className={styles.walletButton} />
@@ -149,9 +149,9 @@ const TransferWidget = () => {
 
                 <div className={styles.box}>
            
-                        <div>Transfer $bryan to doglife.ai</div>
+                        <div>Transfer $BRYAN to DogLife.AI</div>
                         {balance !== null && (
-                            <div className={styles.balanceText}>Balance: {balance} $bryan</div>
+                            <div className={styles.balanceText}>Balance: {balance} $BRYAN</div>
                         )}
                         <br />
                         <div className={styles.formGroup}>
@@ -165,7 +165,7 @@ const TransferWidget = () => {
                             />
                         </div>
                         <div className={styles.formGroup}>
-                            <label   className={styles.inputLabel} htmlFor="amount">Amount ($bryan)</label>
+                            <label   className={styles.inputLabel} htmlFor="amount">Amount ($BRYAN)</label>
                             <input
                                 id="amount"
                                 type="text"
@@ -191,7 +191,7 @@ const TransferWidget = () => {
                 <div className={`${styles.box} ${styles.boxgraph}`}
                 >
 
-                    <BryanTokenStats/>
+                    <SolTokenStats/>
 
                     
                 </div>
