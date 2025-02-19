@@ -9,7 +9,8 @@ export default function SPLTokenStats() {
 
   useEffect(() => {
     const connection = new Connection(
-   
+      "https://tame-evocative-hill.solana-mainnet.quiknode.pro//",
+      "confirmed"
     );
 
     const fetchTokenBalance = async () => {
