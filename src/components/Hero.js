@@ -92,23 +92,26 @@ const Hero = () => {
             )}
         </div>
     </div>
-   {/* Logo and Dropdown Menu */}
 
       {/* Main Content */}
-      <img src={doggyhead} alt="doggyhead" width={260} />
-      <img src={doglifeai_title} alt="DOG LIFE AI" width={200} />
+      <section className="body-hero">
 
-      <div className="text-line">Help dogs live forever</div>
-      <div className="text-line">( because humans are weird )</div>
-      <div className="text-line">an AI agent by DrPepe.AI</div>
+          <img src={doggyhead} alt="doggyhead" width={260} />
+          <img src={doglifeai_title} alt="DOG LIFE AI" width={200} />
 
-      <div onClick={openDogAgent} className="text-line link-text">
-        dog agent v.0 1
-      </div>
+          <div className="text-line">Help dogs live forever</div>
+          <div className="text-line">( because humans are weird )</div>
+          <div className="text-line">an AI agent by DrPepe.AI</div>
 
-      <Link to="/transfer-widget" className="text-line link-text">
-        <span>buy with $BRYAN</span>
-      </Link>
+          <div onClick={openDogAgent} className="text-line link-text">
+            dog agent v.0 1
+          </div>
+
+          <Link to="/transfer-widget" className="text-line link-text">
+            <span>buy with $BRYAN</span>
+          </Link>
+
+      </section>
       
       <div className="container-header">
        
