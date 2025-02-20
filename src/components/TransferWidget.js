@@ -17,9 +17,9 @@ import paw from '../assets/paw.svg';
 import doglifelogo from '../assets/doglifelogo.svg';
 import drpepelogo from '../assets/drpepe-logo.svg';
 import separator from '../assets/separator.svg';
-import DashedLineChart from './DashedLineChart';
+
 import SolTokenStats from './SolTokenStats';
-import SPLTokenPrice from './SPLTokenPrice';
+
 
 // Constants
 const TOKEN_MINT_ADDRESS = 'BrYANThKaAbjZZH5XWLrw26NzMbfUNmBwbZiMe4Fj5Mk';
@@ -208,8 +208,57 @@ const TransferWidget = () => {
                     
                 </div>
             </section>
+
+            <div className={styles.container_footer}>
+            <div className={styles.menu} >
+                <div onClick={toggleDropdown} className="nav-toggle">
+                {menuOpen ? (
+                <img src={paw} alt="paw icon" className="paw-icon" width={30} />
+                ) : (
+                <>
+                <span className="bar"></span>
+                <span className="bar"></span>
+                <span className="bar"></span>
+                </>
+                )}
+                </div>
+                {dropdownOpen && (
+                <div className={styles.dropdownmenu}>
+                <div
+                onClick={() =>
+                    window.open("tg://resolve?domain=drpepeaiOFFICIAL", "_blank")
+                }
+                className="dropdown-item"
+                >
+                Join The Community
+                </div>
+                <div
+                onClick={() => window.open("https://x.com/DogLifeAI", "_blank")}
+                className="dropdown-item"
+                >
+                X @doglifeai
+                </div>
+                <div
+                onClick={() =>
+                    window.open("https://drpepe.typeform.com/EternalsProgram", "_blank")
+                }
+                className="dropdown-item"
+                >
+                Become an Ambassador
+                </div>
+                <div
+                onClick={() => window.open("https://docs.drpepe.ai/", "_blank")}
+                className="dropdown-item"
+                >
+                Docs
+                </div>
+                </div>
+                )}
+            </div> 
+            </div>
         </>
     );
 };
+
 
 export default TransferWidget;
