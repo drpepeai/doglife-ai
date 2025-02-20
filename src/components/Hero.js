@@ -43,53 +43,56 @@ const Hero = () => {
 
   return (
     <div className="container">
-    <Link to="https://www.drpepe.ai/" className="todrpepeai"> DrPepe.AI</Link>
-   {/* Logo and Dropdown Menu */}
-   <div className="logo-wired" ref={dropdownRef}>
-        <div onClick={toggleDropdown} className="nav-toggle">
-          {menuOpen ? (
-            <img src={paw} alt="paw icon" className="paw-icon" width={30} />
-          ) : (
-            <>
-              <span className="bar"></span>
-              <span className="bar"></span>
-              <span className="bar"></span>
-            </>
-          )}
+
+<   div className="container-header">
+        <Link to="https://www.drpepe.ai/" className="tohome"> DrPepe.AI</Link>
+        <div className="paw-dropdown-container" ref={dropdownRef}>
+            <div onClick={toggleDropdown} className="nav-toggle">
+              {menuOpen ? (
+                <img src={paw} alt="paw icon" className="paw-icon" width={30} />
+              ) : (
+                <>
+                  <span className="bar"></span>
+                  <span className="bar"></span>
+                  <span className="bar"></span>
+                </>
+              )}
+            </div>
+            {dropdownOpen && (
+              <div className="dropdown-menu">
+                <div
+                  onClick={() =>
+                    window.open("tg://resolve?domain=drpepeaiOFFICIAL", "_blank")
+                  }
+                  className="dropdown-item"
+                >
+                  Join The Community
+                </div>
+                <div
+                  onClick={() => window.open("https://x.com/DogLifeAI", "_blank")}
+                  className="dropdown-item"
+                >
+                  X @doglifeai
+                </div>
+                <div
+                  onClick={() =>
+                    window.open("https://drpepe.typeform.com/EternalsProgram", "_blank")
+                  }
+                  className="dropdown-item"
+                >
+                  Become an Ambassador
+                </div>
+                <div
+                  onClick={() => window.open("https://docs.drpepe.ai/", "_blank")}
+                  className="dropdown-item"
+                >
+                  Docs
+                </div>
+              </div>
+            )}
         </div>
-        {dropdownOpen && (
-          <div className="dropdown-menu">
-            <div
-              onClick={() =>
-                window.open("tg://resolve?domain=drpepeaiOFFICIAL", "_blank")
-              }
-              className="dropdown-item"
-            >
-              Join The Community
-            </div>
-            <div
-              onClick={() => window.open("https://x.com/DogLifeAI", "_blank")}
-              className="dropdown-item"
-            >
-              X @doglifeai
-            </div>
-            <div
-              onClick={() =>
-                window.open("https://drpepe.typeform.com/EternalsProgram", "_blank")
-              }
-              className="dropdown-item"
-            >
-              Become an Ambassador
-            </div>
-            <div
-              onClick={() => window.open("https://docs.drpepe.ai/", "_blank")}
-              className="dropdown-item"
-            >
-              Docs
-            </div>
-          </div>
-        )}
     </div>
+   {/* Logo and Dropdown Menu */}
 
       {/* Main Content */}
       <img src={doggyhead} alt="doggyhead" width={260} />
@@ -106,6 +109,12 @@ const Hero = () => {
       <Link to="/transfer-widget" className="text-line link-text">
         <span>buy with $BRYAN</span>
       </Link>
+      
+      <div className="container-header">
+       
+    </div>
+
+
     </div>
   );
 };
