@@ -224,16 +224,6 @@ input[type="number"] {
   margin: 0;
 }
 
-/* Paw Icon */
-.pawicon {
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  margin-top: -5px;
-  z-index: 999999;
-
-}
-
 /* Dropdown menu */
 .dropdownmenu {
   background-color: var(--white);
@@ -243,10 +233,10 @@ input[type="number"] {
   margin-bottom: -40px;
   position: absolute;
   bottom: 50px;
-  right: 0;
+  right: 30px;
   transform: translateX(0%); /* Hidden by default (opens right to left) */
   transition: transform 0.3s ease-in-out;
-  z-index: 9;
+  z-index: 9 !important;
 }
 
 /* Show menu when open */
@@ -265,7 +255,7 @@ input[type="number"] {
   width: 20px;
   align-items: center;
   justify-content: center;
-  z-index: 999999;
+
 
 }
 
@@ -276,6 +266,7 @@ input[type="number"] {
   background-color: var(--black);
   transition: opacity 0.3s ease;
   margin-bottom: 0.2rem;
+  z-index: 999999;
 }
 
 .nav-toggle.open .bar {
@@ -306,6 +297,16 @@ input[type="number"] {
 
 
 
+
+/* Paw Icon */
+.pawicon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-top: -5px;
+  z-index: 999999;
+
+}
 
 
 
