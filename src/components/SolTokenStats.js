@@ -79,18 +79,18 @@ export default function SPLTokenStats() {
 
   return (
     <div className={styles.container}>
-      <h2>$BRYAN Token Stats</h2>
+
 
       {/* 🔹 Display Balance */}
       {loading ? (
         <p>Loading balance...</p>
       ) : (
         <>
-          <div className={styles.balance}>Wallet Balance: {balance} $BRYAN</div>
+          <div className={styles}>Total Raised in BRYAN: {balance}</div>
         </>
       )}
 
-      {/* 🔹 Display Price */}
+      {/* 🔹 Display Price
       {loadingPrice ? (
         <p>Loading price...</p>
       ) : (
@@ -98,11 +98,12 @@ export default function SPLTokenStats() {
           Current Price: {price ? price : "N/A"} USDC
         </div>
       )}
+         */}
 
       {/* 🔹 Display Total Raised in $BRYAN */}
       {!loading && !loadingPrice && (
-        <div className={styles.raised}>
-          Total Raised: {(balance * price)} USDC
+        <div className={styles}>
+          Total Raised in USDC: {(balance * price)}
         </div>
       )}
     </div>

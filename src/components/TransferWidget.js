@@ -184,21 +184,21 @@ const TransferWidget = () => {
                             </div>
                         </div>
                     </div>
-
                     <div className={styles.transferButtonBox}>
                         <button onClick={handleTransfer} className={styles.transferButton}>
                             Transfer
                         </button>
+                        <div className={styles.buttonUnderText}>1 BRYAN = 1 DOGLIFE.AI</div>
                     </div>
+
 
                     </div>
 
                     <div className={styles.boxMain}>
-                        <div className={styles.boxright}>
+                    <div className={`${styles.boxright}`}>
                             <div>DogLife.AI Wallet</div>
-                   
+                   <br/>
                             <SolTokenStats />
-                        <SPLTokenPrice />
                         </div>
                     </div>
                     
