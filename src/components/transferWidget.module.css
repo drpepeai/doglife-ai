@@ -5,26 +5,29 @@
     height: 100%;
     height: 100vh;
     height: 100dvh;
-    padding-bottom: 10%;
-    padding-top: 10%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background-color:var(--white);
     font-family: var(--font-sm-text);
 
+    overflow: hidden;
+
 }
 .boxMainContainer{
+  
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
 }
 .boxMain{
 
 
-  width: 400px;
+  width: 100%;
 
 }
 .box{
@@ -60,7 +63,7 @@
   background-color:#29201D;
   color:var(--black);
   width: 100%;
-  max-width: 400px;
+
   margin-top: 1rem;
 }
 .buttonUnderText{
@@ -68,15 +71,13 @@
   font-size: 12px;
 }
 .tohome{
-  position: fixed;
-  top: 30px;
-  left:10px ;
+
 
   background-color: transparent;
   
   color: var(--black);
   cursor: pointer;
-  margin-left: 2vw;
+
   text-decoration: none;
   height: 1.3rem;
   justify-content: center;
@@ -273,13 +274,17 @@ input[type="number"] {
 
 
 /*menu*/
+.container_header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
 
-.tohome{
-  position: fixed;
-  top: 30px;
-  left: 10px;
-  
+  background-color:#29201D;
+  padding: 1rem;
 }
+
 
 
 /*Desktop*/

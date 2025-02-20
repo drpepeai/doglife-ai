@@ -1,20 +1,13 @@
 .wallet-adapter-dropdown  {
-    position: fixed !important;
-    top: 20px;
-    right: 20px;
 
     background-color: transparent;
-  
     color: var(--black);
     cursor: pointer;
-    margin-left: 2vw;
     text-decoration: none;
-    height: 2rem;
     justify-content: center;
     align-items: center;
     text-align: center;
     border-bottom: 1px solid var(--black);
-
     font-family: var(--font-sm-text) !important;
     font-size: 12px !important;
   }
@@ -22,12 +15,13 @@
     background-color: transparent !important;  
   }
   .wallet-adapter-button{
-    height: 40px !important;
+    height: 20px !important;
     font-family: var(--font-sm-text) !important;
     font-size: 14px !important;
     color: var(--black) !important;
     padding-right: 0px !important;
     margin-right: 0px !important;
+    padding: 0 !important;
 
   }
   

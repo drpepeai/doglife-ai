@@ -128,8 +128,12 @@ const TransferWidget = () => {
 
     return (
         <>
-            <Link to="/" className={styles.tohome}> DogLife.AI</Link>
-            <WalletMultiButton className={styles.walletButton} />
+            <div className={styles.container_header}>
+                <Link to="/" className={styles.tohome}> DogLife.AI</Link>
+                <WalletMultiButton className={styles} />
+            </div>
+
+
             <section className={styles.container_transfer_widget}>
 
                 <div className={styles.boxMainContainer}>
