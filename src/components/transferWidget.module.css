@@ -101,6 +101,10 @@
 
   border-radius: 12px;
   background-color: #4C3D38;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
+
+  box-shadow: 0 4px 8px rgba(221, 144, 144, 0.1);
   color:var(--black);
   
 }

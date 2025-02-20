@@ -141,7 +141,7 @@ const TransferWidget = () => {
                     <div className={styles.boxMain}>
        
                     <div className={styles.box}>
-                    <div>Transfer $BRYAN</div>
+                    <div>Buy $BRYAN</div>
                         {balance !== null && (
                             <div className={styles.balanceText}>Balance: {balance} $BRYAN</div>
                         )}
@@ -190,7 +190,7 @@ const TransferWidget = () => {
                     </div>
                     <div className={styles.transferButtonBox}>
                         <button onClick={handleTransfer} className={styles.transferButton}>
-                            Transfer
+                          Buy
                         </button>
                         <div className={styles.buttonUnderText}>1 BRYAN = 1 DOGLIFEAI</div>
                     </div>
