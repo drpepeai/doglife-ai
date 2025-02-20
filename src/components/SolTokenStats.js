@@ -106,6 +106,7 @@ export default function SPLTokenStats() {
           Total Raised in USDC: {(balance * price)}
         </div>
       )}
+
     </div>
   );
 }

@@ -175,7 +175,7 @@ const TransferWidget = () => {
                             <div className={styles.inputimagebox}>
                                 <div style={{display: 'flex', alignItems:'center'}}>
                                     <img src={doglifelogo} alt='doglifelogo' className={styles.inputimage} />
-                                    <div>DOGLIFE.AI</div>
+                                    <div>DOGLIFEAI</div>
                                 </div>
 
                             <input
@@ -192,7 +192,7 @@ const TransferWidget = () => {
                         <button onClick={handleTransfer} className={styles.transferButton}>
                             Transfer
                         </button>
-                        <div className={styles.buttonUnderText}>1 BRYAN = 1 DOGLIFE.AI</div>
+                        <div className={styles.buttonUnderText}>1 BRYAN = 1 DOGLIFEAI</div>
                     </div>
 
 
