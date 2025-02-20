@@ -17,6 +17,9 @@ import paw from '../assets/paw.svg';
 import doglifelogo from '../assets/doglifelogo.svg';
 import drpepelogo from '../assets/drpepe-logo.svg';
 import separator from '../assets/separator.svg';
+import DashedLineChart from './DashedLineChart';
+import SolTokenStats from './SolTokenStats';
+import SPLTokenPrice from './SPLTokenPrice';
 
 // Constants
 const TOKEN_MINT_ADDRESS = 'BrYANThKaAbjZZH5XWLrw26NzMbfUNmBwbZiMe4Fj5Mk';
@@ -128,65 +131,78 @@ const TransferWidget = () => {
             <Link to="/" className={styles.tohome}> DogLife.AI</Link>
             <WalletMultiButton className={styles.walletButton} />
             <section className={styles.container_transfer_widget}>
-               <div>
 
-                <div className={styles.box}>
-                    {balance !== null && (
-                        <div className={styles.balanceText}>Balance: {balance} $BRYAN</div>
-                    )}
-                    <br />
-                     
-                    <div className={styles.formGroup}>
-                        <label className={styles.inputLabel}>From</label>
-                        <div className={styles.inputimagebox}>
-                            <div style={{display: 'flex', alignItems:'center'}}>
-                                <img src={drpepelogo} alt='doglifelogo' className={styles.inputimage} />
-                                <div>BRYAN</div>
-                            </div>
-
-                        <input
-                            type="text"
-                            placeholder="0"
-                            value={amount}
-                            onChange={handleAmountChange}
-                            className={styles.inputField}
-                        />
-                        </div>
-                    </div>
-
-                    <div className={styles.formSeparator}>
-                    <img src={separator} alt='separator' className={styles.separator} />
-                    </div>
-                    <div className={styles.formGroup}>
-                        <label className={styles.inputLabel}>To</label>
-                        <div className={styles.inputimagebox}>
-                            <div style={{display: 'flex', alignItems:'center'}}>
-                                <img src={doglifelogo} alt='doglifelogo' className={styles.inputimage} />
-                                <div>DOGLIFE.AI</div>
-                            </div>
-
-                        <input
-                            type="text"
-                            placeholder="0"
-                            value={amount}
-                            onChange={handleAmountChange}
-                            className={styles.inputField}
-                        />
-                        </div>
-                    </div>
-                </div>
-
-                <div className={styles.transferButtonBox}>
-                    <button onClick={handleTransfer} className={styles.transferButton}>
-                        Transfer
-                    </button>
-                </div>
-
-               </div>
-
-
-
+                <div className={styles.boxMainContainer}>
+          
+                    <div className={styles.boxMain}>
        
+                    <div className={styles.box}>
+                    <div>Transfer $BRYAN</div>
+                        {balance !== null && (
+                            <div className={styles.balanceText}>Balance: {balance} $BRYAN</div>
+                        )}
+                        <br />
+                            
+                        <div className={styles.formGroup}>
+                            <label className={styles.inputLabel}>From</label>
+                            <div className={styles.inputimagebox}>
+                                <div style={{display: 'flex', alignItems:'center'}}>
+                                    <img src={drpepelogo} alt='doglifelogo' className={styles.inputimage} />
+                                    <div>BRYAN</div>
+                                </div>
+
+                            <input
+                                type="text"
+                                placeholder="0"
+                                value={amount}
+                                onChange={handleAmountChange}
+                                className={styles.inputField}
+                            />
+                            </div>
+                        </div>
+
+                        <div className={styles.formSeparator}>
+                        <img src={separator} alt='separator' className={styles.separator} />
+                        </div>
+
+
+                        <div className={styles.formGroup}>
+                            <label className={styles.inputLabel}>To</label>
+                            <div className={styles.inputimagebox}>
+                                <div style={{display: 'flex', alignItems:'center'}}>
+                                    <img src={doglifelogo} alt='doglifelogo' className={styles.inputimage} />
+                                    <div>DOGLIFE.AI</div>
+                                </div>
+
+                            <input
+                                type="text"
+                                placeholder="0"
+                                value={amount}
+                                onChange={handleAmountChange}
+                                className={styles.inputField}
+                            />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={styles.transferButtonBox}>
+                        <button onClick={handleTransfer} className={styles.transferButton}>
+                            Transfer
+                        </button>
+                    </div>
+
+                    </div>
+
+                    <div className={styles.boxMain}>
+                        <div className={styles.boxright}>
+                            <div>DogLife.AI Wallet</div>
+                   
+                            <SolTokenStats />
+                        <SPLTokenPrice />
+                        </div>
+                    </div>
+                    
+                </div>
             </section>
         </>
     );

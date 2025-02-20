@@ -13,26 +13,51 @@
     justify-content: center;
     background-color:var(--white);
     font-family: var(--font-sm-text);
-}
 
+}
+.boxMainContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.boxMain{
+  height: 420px;
+  width: 400px;
+}
 .box{
 
     padding: 20px;
     border-radius: 12px;
     background-color:#29201D;
     color:var(--black);
-    width: 90%;
-    max-width: 400px;
     margin-top: 2rem;
+    height: 290px;
 
 
+}
+.boxright{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      border-radius: 12px;
+      background-color: #29201D;
+      color: var(--black);
+      height: 93.2%;
+      margin-left: 2rem;
+      align-items: center;
+}
+.balance{
+  font-size: 32px;
 }
 .transferButtonBox{
   padding: 20px;
   border-radius: 12px;
   background-color:#29201D;
   color:var(--black);
-  width: 90%;
+  width: 100%;
   max-width: 400px;
   margin-top: 1rem;
 }
@@ -260,13 +285,16 @@ input[type="number"] {
   }
   .box{
     margin-top: 0px;
-    margin-right: 2rem;
+ 
 
   }
   .boxgraph{
     border-color: red;
     min-width: 600px;
   }
+
+
+
 
 
 
