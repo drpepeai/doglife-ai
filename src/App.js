@@ -1,9 +1,10 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { useSwipeable } from "react-swipeable";
 import Hero from './components/Hero';
 import TransferWidget from './components/TransferWidget';
-import PageTransition_one from './components/PageTransition_one';
-// Import Solana wallet adapter components
+
+// Solana wallet adapter components
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets';
@@ -16,7 +17,6 @@ const QUICKNODE_RPC = "https://tame-evocative-hill.solana-mainnet.quiknode.pro/0
 const wallets = [
   new PhantomWalletAdapter(),
   new SolflareWalletAdapter(),
-  // You can add additional adapters here
 ];
 
 function App() {
@@ -25,19 +25,32 @@ function App() {
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
           <Router>
-            <PageTransition_one>
-
-              <Routes>
-                <Route path="/" element={<Hero />} />
-                <Route path="/transfer-widget" element={<TransferWidget />} />
-
-              </Routes>
-
-            </PageTransition_one>
+            <SwipeNavigator />
           </Router>
         </WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>
+  );
+}
+
+// 🔹 Handles Swipe Navigation (Left/Right)
+function SwipeNavigator() {
+  const navigate = useNavigate();
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => navigate("/transfer-widget"), // Swipe left to go to TransferWidget
+    onSwipedRight: () => navigate("/"), // Swipe right to go back to Home
+    preventScrollOnSwipe: true, // Prevents scrolling while swiping
+    trackMouse: true, // Enables swiping with mouse (for desktop support)
+  });
+
+  return (
+    <div {...handlers} style={{ width: "100vw", height: "100vh" }}>
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/transfer-widget" element={<TransferWidget />} />
+      </Routes>
+    </div>
   );
 }
 
