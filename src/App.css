@@ -16,25 +16,4 @@ html, body {
   --font-sm-text: "Cochin", serif;
 
 }
-.cube-container {
-  width: 100vw;
-  height: 100vh;
-  perspective: 1200px; /* Adds depth for 3D effect */
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: black; /* Background color */
-}
 
-.cube-page {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  backface-visibility: hidden;
-  transform-origin: center;
-}
