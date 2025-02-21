@@ -211,7 +211,7 @@ input[type="number"] {
   flex-direction: row;
   justify-content: end;
   align-items: center;
-  height: 9rem;
+  height: 3rem;
 
   background-color:var(--white);
   padding: 1rem;
