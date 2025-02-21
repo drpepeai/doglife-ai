@@ -11,4 +11,9 @@
   .wallet-adapter-button-start-icon{
     width: 12px !important;
   }
+
+  .wallet-adapter-button-start-icon img{
+    width: 16px !important;
+    height: 16px !important;
+  }
   
