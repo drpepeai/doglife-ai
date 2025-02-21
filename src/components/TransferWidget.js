@@ -298,7 +298,7 @@ const TransferWidget = () => {
                 {dropdownOpenRead && (
                 <div className={styles.slideupRead}>
 
-                    <div className={styles.smallText}>All BRYAN used to buy DOGLIFEAI will  be locked for 3 years with https://streamflow.finance/ with the contract address shared here.</div>
+                    <div className={styles.smallText}>All BRYAN used to buy DOGLIFEAI will  be locked for 3 years with <a href="https://streamflow.finance/" target="_blank" rel="noopener noreferrer" className="dropdown-item">  https://streamflow.finance  </a> with the contract address shared here.</div>
 
                     <div className={styles.smallText}>You will be able to buy DOGLIFEAI with BRYAN until April 1, 2025</div>
                

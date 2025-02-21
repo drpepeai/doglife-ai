@@ -37,6 +37,7 @@
     border-radius: 12px;
     background-color: #29201d61;
     color:var(--black);
+    line-height: 1.6;
 
 
 
@@ -49,6 +50,7 @@
       color: var(--black);
       align-items: center;
       margin-top: 1rem;
+      line-height: 1.6;
 
 
 
@@ -263,6 +265,7 @@ input[type="number"] {
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 2rem); /* Adjust as needed */
+  line-height: 1.6;
   
 
 
