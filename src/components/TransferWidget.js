@@ -34,6 +34,9 @@ const TransferWidget = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const dropdownRef = useRef(null);
+    
+    const [usdcValue, setUsdcValue] = useState(0); // New state for dynamic USDC value
+
 
     useEffect(() => {
         if (!publicKey) {
@@ -54,6 +57,7 @@ const TransferWidget = () => {
         fetchBalance();
     }, [publicKey, connection]);
 
+    
     const handleTransfer = async () => {
         if (!publicKey) {
             alert('Please connect your wallet');
@@ -104,6 +108,7 @@ const TransferWidget = () => {
         const { value } = e.target;
         if (value === '' || /^\d*\.?\d*$/.test(value)) {
             setAmount(value);
+            setUsdcValue(value ? (parseFloat(value) * 1.3).toFixed(2) : '0'); // Ensure it's always a string
         }
     };
 
@@ -154,6 +159,7 @@ const TransferWidget = () => {
                                     <img src={drpepelogo} alt='doglifelogo' className={styles.inputimage} />
                                     <div>BRYAN</div>
                                 </div>
+                            <div className={styles.inputsBox}>
 
                             <input
                                 type="text"
@@ -162,6 +168,8 @@ const TransferWidget = () => {
                                 onChange={handleAmountChange}
                                 className={styles.inputField}
                             />
+                            <div className={styles.usdcPrice}> {usdcValue} USDC</div>
+                            </div>
                             </div>
                         </div>
 
