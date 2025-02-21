@@ -206,7 +206,7 @@ const TransferWidget = () => {
                     <div className={styles.box}>
                     <div>Buy DOGLIFEAI with BRYAN</div>
                         {balance !== null && (
-                            <div className={styles.balanceText}>Balance: {balance} $BRYAN</div>
+                            <div className={styles.balanceText}>  {balance ? Number(balance).toLocaleString('en-US'): ''} $BRYAN</div>
                         )}
                         <br />
                             
