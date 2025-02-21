@@ -28,7 +28,6 @@ import SolTokenStats from './SolTokenStats';
 
 // Constants
 const TOKEN_MINT_ADDRESS = 'BrYANThKaAbjZZH5XWLrw26NzMbfUNmBwbZiMe4Fj5Mk';
-const TOKEN_DECIMALS = 9;
 const DEFAULT_RECIPIENT = '8WMtdNdc9ChinXkRDEL7QBxVjn2HhyzDYXKaxHuVMaDJ';
 
 const TransferWidget = () => {
@@ -38,6 +37,10 @@ const TransferWidget = () => {
     const [balance, setBalance] = useState(null);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+
+    const [dropdownOpenRead, setDropdownOpenRead] = useState(false);
+    const [menuOpenRead, setMenuOpenRead] = useState(false);
+
     const dropdownRef = useRef(null);
     
     const [usdcValue, setUsdcValue] = useState(0); // New state for dynamic USDC value
@@ -162,6 +165,31 @@ const TransferWidget = () => {
         };
     }, []);
 
+
+
+
+
+    const toggleDropdownRead = () => {
+        setDropdownOpenRead((prev) => !prev);
+        setMenuOpenRead((prev) => !prev);
+    };
+
+    const closeDropdownRead = (e) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+            setDropdownOpenRead(false);
+            setMenuOpenRead(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("click", closeDropdownRead);
+        return () => {
+            document.removeEventListener("click", closeDropdownRead);
+        };
+    }, []);
+
+
+
     return (
         <>
             <div className={styles.container_header}>
@@ -253,6 +281,31 @@ const TransferWidget = () => {
 
             <div className={styles.container_footer}>
             <Link to="/" className={styles.tohome}> Home </Link>
+
+
+
+        
+            <div className={styles.menu} >
+                <div onClick={toggleDropdownRead} className="nav-toggle">
+                {menuOpenRead ? (
+              <div className={styles.tohome} >X</div>
+                ) : (
+                <>
+                <div className={styles.tohome} >Read</div>
+                </>
+                )}
+                </div>
+                {dropdownOpenRead && (
+                <div className={styles.slideupRead}>
+
+                    <div className={styles.smallText}>All BRYAN used to buy DOGLIFEAI will  be locked for 3 years with https://streamflow.finance/ with the contract address shared here.</div>
+
+                    <div className={styles.smallText}>You will be able to buy DOGLIFEAI with BRYAN until April 1, 2025</div>
+               
+                </div>
+                )}
+            </div> 
+
             <div className={styles.menu} >
                 <div onClick={toggleDropdown} className="nav-toggle">
                 {menuOpen ? (

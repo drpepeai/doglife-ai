@@ -116,8 +116,7 @@ export default function SPLTokenStats() {
    Total Raised in USDC: {Number(balance * price).toFixed(2)}
         </div>
       )}
-             <div className={styles.smallText}>All BRYAN used to buy DOGLIFEAI will  be locked for 3 years with https://streamflow.finance/ with the contract address shared here.</div>
-             <div className={styles.smallText}>You will be able to buy DOGLIFEAI with BRYAN until April 1, 2025</div>
+          
     </div>
   );
 }

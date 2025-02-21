@@ -54,7 +54,7 @@
 
 }
 .smallText{
-  font-size: 12px;
+  font-size: 15px;
   text-align: start;
   padding-top: 1rem;
 }
@@ -240,16 +240,40 @@ input[type="number"] {
 
 /* Menu styling */
 .menu {
-  position: absolute;
+ 
 
-  right: 1rem;
-  width: 225px;
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-end;
   color: var(--black);
   font-family: var(--font-sm-text);
   margin: 0;
+}
+
+.slideupRead{
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 1rem;
+  padding-top: 0;
+  background: rgba(41, 41, 41, 0.2); 
+  border-radius: 12px 12px 0 0;
+  margin-bottom: -50px;
+
+  position: absolute;
+  bottom: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem); /* Adjust as needed */
+  
+
+
+  transition: transform 0.3s ease-in-out;
+  z-index: 9 !important;
+  max-width: 455px;
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px); 
+
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Dropdown menu */
@@ -334,7 +358,7 @@ input[type="number"] {
   height: 30px;
   cursor: pointer;
   margin-top: -5px;
-  z-index: 999999;
+  z-index: 999 !important;
 
 }
 
