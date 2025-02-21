@@ -1,5 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
+import { useAtom } from "jotai"; 
+import { priceAtom } from "../jotai"; 
+
+
+
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { PublicKey, Transaction } from '@solana/web3.js';
@@ -36,6 +41,8 @@ const TransferWidget = () => {
     const dropdownRef = useRef(null);
     
     const [usdcValue, setUsdcValue] = useState(0); // New state for dynamic USDC value
+    const [price] = useAtom(priceAtom); // ✅ Use global price from Jotai
+
 
 
     useEffect(() => {
@@ -104,11 +111,14 @@ const TransferWidget = () => {
         }
     };
 
+    useEffect(() => {
+        setUsdcValue(amount ? (parseFloat(amount) * price).toFixed(2) : '0');
+    }, [amount, price]);
+
     const handleAmountChange = (e) => {
         const { value } = e.target;
         if (value === '' || /^\d*\.?\d*$/.test(value)) {
             setAmount(value);
-            setUsdcValue(value ? (parseFloat(value) * 1.3).toFixed(2) : '0'); // Ensure it's always a string
         }
     };
 

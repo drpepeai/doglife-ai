@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { useAtom } from "jotai";
+
+import { priceAtom } from "../jotai"; // Import global atom
+
 import { Connection, PublicKey } from "@solana/web3.js";
 
 import styles from "./transferWidget.module.css";
 
 export default function SPLTokenStats() {
+
   const [balance, setBalance] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [price, setPrice] = useState(null);
+  const [price, setPrice] = useAtom(priceAtom); // Use global state
   const [loadingPrice, setLoadingPrice] = useState(true);
 
   const walletAddress = "8WMtdNdc9ChinXkRDEL7QBxVjn2HhyzDYXKaxHuVMaDJ";
@@ -110,3 +115,5 @@ export default function SPLTokenStats() {
     </div>
   );
 }
+
+
