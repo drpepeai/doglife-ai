@@ -86,7 +86,7 @@ export default function SPLTokenStats() {
         <p>Loading balance...</p>
       ) : (
         <>
-          <div className={styles}>Total Raised in BRYAN: {balance}</div>
+          <div className={styles}>Total raised in $BRYAN: {balance.toLocaleString('en-US')}</div>
         </>
       )}
 
@@ -103,7 +103,7 @@ export default function SPLTokenStats() {
       {/* 🔹 Display Total Raised in $BRYAN */}
       {!loading && !loadingPrice && (
         <div className={styles}>
-          Total Raised in USDC: {(balance * price)}
+   Total raised in USDC: {Number(balance * price).toFixed(2)}
         </div>
       )}
 
