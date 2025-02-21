@@ -38,17 +38,17 @@ function SwipeNavigator() {
   const navigate = useNavigate();
 
   const handlers = useSwipeable({
-    onSwipedLeft: () => navigate("/transfer-widget"), // Swipe left to go to TransferWidget
-    onSwipedRight: () => navigate("/"), // Swipe right to go back to Home
-    preventScrollOnSwipe: true, // Prevents scrolling while swiping
-    trackMouse: true, // Enables swiping with mouse (for desktop support)
+    onSwipedLeft: () => navigate("/buy"), 
+    onSwipedRight: () => navigate("/"), 
+    preventScrollOnSwipe: true,
+    trackMouse: true,
   });
 
   return (
     <div {...handlers} style={{ width: "100vw", height: "100dvh" }}>
       <Routes>
         <Route path="/" element={<Hero />} />
-        <Route path="/transfer-widget" element={<TransferWidget />} />
+        <Route path="/buy" element={<TransferWidget />} />
       </Routes>
     </div>
   );

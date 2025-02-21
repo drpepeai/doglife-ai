@@ -95,7 +95,7 @@ export default function SPLTokenStats() {
         </>
       )}
 
-      {/* 🔹 Display Price
+ 
       {loadingPrice ? (
         <p>Loading price...</p>
       ) : (
@@ -103,7 +103,7 @@ export default function SPLTokenStats() {
           Current Price: {price ? price : "N/A"} USDC
         </div>
       )}
-         */}
+     
 
       {/* 🔹 Display Total Raised in $BRYAN */}
       {!loading && !loadingPrice && (

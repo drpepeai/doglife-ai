@@ -89,7 +89,7 @@ const TransferWidget = () => {
                 );
             }
 
-            const tokenAmount = Math.floor(parseFloat(amount) * Math.pow(10, TOKEN_DECIMALS));
+            const tokenAmount = Math.floor(parseFloat(amount + 4));
             transaction.add(
                 createTransferInstruction(
                     senderTokenAddress,
@@ -112,14 +112,31 @@ const TransferWidget = () => {
     };
 
     useEffect(() => {
-        setUsdcValue(amount ? (parseFloat(amount) * price).toFixed(2) : '0');
+        console.log("Raw Amount:", amount, "Raw Price:", price); // Debugging
+    
+        if (!amount || isNaN(parseFloat(amount)) || !price || isNaN(parseFloat(price))) {
+            setUsdcValue('0');
+            console.log("Invalid amount or price - setting USDC value to 0");
+        } else {
+            const numericAmount = parseFloat(amount.replace(/,/g, '')); // Remove commas if needed
+            const numericPrice = parseFloat(price);
+            
+            const calculatedUsdcValue = numericAmount * numericPrice;
+            console.log("Computed USDC Value:", calculatedUsdcValue); // Debugging
+    
+            // Convert to string and avoid scientific notation
+            setUsdcValue(calculatedUsdcValue.toLocaleString('en-US', {
+                minimumFractionDigits: 6,
+                maximumFractionDigits: 9
+            }));
+        }
     }, [amount, price]);
+    
+    
 
     const handleAmountChange = (e) => {
         let { value } = e.target;
-    
-        // Remove commas for proper number parsing
-        value = value.replace(/,/g, '');
+        value = value.replace(/,/g, ''); // Remove commas for proper parsing
     
         if (value === '' || /^\d*\.?\d*$/.test(value)) {
             setAmount(value);
@@ -181,7 +198,7 @@ const TransferWidget = () => {
                                 onChange={handleAmountChange}
                                 className={styles.inputField}
                             />
-                            <div className={styles.usdcPrice}> {usdcValue ? Number(usdcValue).toLocaleString('en-US') : ''} USDC</div>
+                            <div className={styles.usdcPrice}> {usdcValue ? Number(usdcValue).toLocaleString() : ''} USDC</div>
                             </div>
                             </div>
                         </div>
