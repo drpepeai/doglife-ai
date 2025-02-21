@@ -282,10 +282,10 @@ input[type="number"] {
   padding: 1rem;
   background: rgba(41, 41, 41, 0.2); 
   border-radius: 12px 12px 0 24px;
-  margin-bottom: -40px;
+  margin-bottom: -28px;
   position: absolute;
   bottom: 50px;
-  right: 30px;
+  right: 50px;
   transform: translateX(0%); 
   transition: transform 0.3s ease-in-out;
   z-index: 9 !important;
