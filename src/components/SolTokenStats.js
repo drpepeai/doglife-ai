@@ -14,7 +14,7 @@ export default function SPLTokenStats() {
   const [price, setPrice] = useAtom(priceAtom); // Use global state
   const [loadingPrice, setLoadingPrice] = useState(true);
 
-  const walletAddress = "8WMtdNdc9ChinXkRDEL7QBxVjn2HhyzDYXKaxHuVMaDJ";
+  const walletAddress = "1VohKPJc5b1ZMfpzs6RM9hh4S5f55ybWHxw3L8uZ36F";
   const tokenMintAddress = "BrYANThKaAbjZZH5XWLrw26NzMbfUNmBwbZiMe4Fj5Mk";
 
   useEffect(() => {
