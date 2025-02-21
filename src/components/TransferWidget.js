@@ -19,7 +19,7 @@ import styles from './transferWidget.module.css';
 import './walletMultiButton.css';
 import '@solana/wallet-adapter-react-ui/styles.css';
 import paw from '../assets/paw.svg';
-import doglifelogo from '../assets/doglifelogo.svg';
+import doglifelogo from '../assets/doglifelogo.png';
 import drpepelogo from '../assets/drpepe-logo.svg';
 import separator from '../assets/separator.svg';
 
@@ -325,7 +325,7 @@ const TransferWidget = () => {
                 onClick={() => window.open("https://drpepe.ai/", "_blank")}
                 className="dropdown-item"
                 >
-                DrPepe.AI
+                DrPepe.ai
                 </div>
                 <div
                 onClick={() =>

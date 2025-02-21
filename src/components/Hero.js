@@ -92,7 +92,7 @@ const Hero = () => {
                   onClick={() => window.open("https://drpepe.ai/", "_blank")}
                   className="dropdown-item"
                 >
-                  DrPepe.AI
+                  DrPepe.ai
                 </div>
               </div>
             )}
