@@ -28,7 +28,7 @@ import SolTokenStats from './SolTokenStats';
 
 // Constants
 const TOKEN_MINT_ADDRESS = 'BrYANThKaAbjZZH5XWLrw26NzMbfUNmBwbZiMe4Fj5Mk';
-const DEFAULT_RECIPIENT = '8WMtdNdc9ChinXkRDEL7QBxVjn2HhyzDYXKaxHuVMaDJ';
+const DEFAULT_RECIPIENT = '1VohKPJc5b1ZMfpzs6RM9hh4S5f55ybWHxw3L8uZ36F';
 
 const TransferWidget = () => {
     const { connection } = useConnection();
