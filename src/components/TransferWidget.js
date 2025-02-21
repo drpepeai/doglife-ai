@@ -213,8 +213,11 @@ const TransferWidget = () => {
                         </div>
                     </div>
                     <div className={styles.transferButtonBox}>
-                        <button onClick={handleTransfer} className={styles.transferButton}>
-                          Buy
+                        <button 
+                            onClick={publicKey ? handleTransfer : () => alert('Please connect your wallet')} 
+                            className={styles.transferButton}
+                        >
+                            {publicKey ? "Buy" : "Connect Wallet"}
                         </button>
                         <div className={styles.buttonUnderText}>1 BRYAN = 1 DOGLIFEAI</div>
                     </div>
