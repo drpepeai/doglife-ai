@@ -107,7 +107,14 @@ const Hero = () => {
 
           <div className="text-line">Help dogs live forever</div>
           <div className="text-line">( because humans are weird )</div>
-          <div className="text-line">an AI agent by DrPepe.AI</div>
+          <div className="text-line">an AI agent by <span className="drpepelink"> <div
+                  onClick={() =>
+                    window.open("https://drpepe.ai/", "_blank")
+                  }
+                  className="dropdown-item"
+                >
+                DrPepe.ai
+                </div></span></div>
 
           <div onClick={openDogAgent} className="text-line link-text">
             dog agent v.0 1

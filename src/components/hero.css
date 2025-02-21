@@ -58,6 +58,7 @@
   }
   .text-line{
     margin-top: 2rem;
+    display: flex;
   }
   .link-text{
     text-decoration: underline;
@@ -119,6 +120,9 @@
 
     color: inherit;
     cursor: pointer;
+  }
+  .drpepelink{
+    padding-left: 0.4rem;
   }
 
   /* Dropdown menu */
