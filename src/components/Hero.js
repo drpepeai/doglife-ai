@@ -4,6 +4,7 @@ import "./hero.css";
 import doglifeai_title from "../assets/Doglife_funky_title.svg";
 import doggyhead from "../assets/doggy_head_gold_centered.gif";
 import paw from "../assets/paw.svg"
+import TypewriterEffect from "./TypewriterEffect";
 
 const Hero = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -43,6 +44,8 @@ const Hero = () => {
 
   return (
     <div className="container">
+
+      <TypewriterEffect />
 
 <   div className="container-header">
         <Link to="https://www.drpepe.ai/" className="tohome"> </Link>
