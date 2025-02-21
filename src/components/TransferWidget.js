@@ -196,17 +196,17 @@ const TransferWidget = () => {
                     </div>
 
 
-                    </div>
-
-                    <div className={styles.boxMain}>
                     <div className={`${styles.boxright}`}>
                             <div>DogLife.AI Wallet</div>
                    <br/>
                             <SolTokenStats />
                         </div>
                     </div>
+                    </div>
+
+
                     
-                </div>
+         
             </section>
 
             <div className={styles.container_footer}>
