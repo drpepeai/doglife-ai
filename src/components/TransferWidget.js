@@ -116,7 +116,11 @@ const TransferWidget = () => {
     }, [amount, price]);
 
     const handleAmountChange = (e) => {
-        const { value } = e.target;
+        let { value } = e.target;
+    
+        // Remove commas for proper number parsing
+        value = value.replace(/,/g, '');
+    
         if (value === '' || /^\d*\.?\d*$/.test(value)) {
             setAmount(value);
         }
@@ -174,11 +178,11 @@ const TransferWidget = () => {
                             <input
                                 type="text"
                                 placeholder="0"
-                                value={amount}
+                                value={amount ? Number(amount).toLocaleString('en-US') : ''}
                                 onChange={handleAmountChange}
                                 className={styles.inputField}
                             />
-                            <div className={styles.usdcPrice}> {usdcValue} USDC</div>
+                            <div className={styles.usdcPrice}> {usdcValue ? Number(usdcValue).toLocaleString('en-US') : ''} USDC</div>
                             </div>
                             </div>
                         </div>
@@ -195,14 +199,16 @@ const TransferWidget = () => {
                                     <img src={doglifelogo} alt='doglifelogo' className={styles.inputimage} />
                                     <div>DOGLIFEAI</div>
                                 </div>
-
+                                <div className={styles.inputsBox}>
                             <input
                                 type="text"
                                 placeholder="0"
-                                value={amount}
+                                value={amount ? Number(amount).toLocaleString('en-US') : ''}
                                 onChange={handleAmountChange}
                                 className={styles.inputField}
                             />
+                            <div className={styles.usdcPrice}> {usdcValue ? Number(usdcValue).toLocaleString('en-US') : ''} USDC</div>
+</div>
                             </div>
                         </div>
                     </div>
