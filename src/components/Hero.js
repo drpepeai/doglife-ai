@@ -45,7 +45,7 @@ const Hero = () => {
     <div className="container">
 
 <   div className="container-header">
-        <Link to="https://www.drpepe.ai/" className="tohome"> DrPepe.AI</Link>
+        <Link to="https://www.drpepe.ai/" className="tohome"> </Link>
         <div className="paw-dropdown-container" ref={dropdownRef}>
             <div onClick={toggleDropdown} className="nav-toggle">
               {menuOpen ? (
@@ -87,6 +87,12 @@ const Hero = () => {
                   className="dropdown-item"
                 >
                   Docs
+                </div>
+                <div
+                  onClick={() => window.open("https://drpepe.ai/", "_blank")}
+                  className="dropdown-item"
+                >
+                  DrPepe.AI
                 </div>
               </div>
             )}

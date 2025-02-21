@@ -251,6 +251,13 @@ const TransferWidget = () => {
                 </div>
                 {dropdownOpen && (
                 <div className={styles.dropdownmenu}>
+
+                <div
+                onClick={() => window.open("https://drpepe.ai/", "_blank")}
+                className="dropdown-item"
+                >
+                DrPepe.AI
+                </div>
                 <div
                 onClick={() =>
                     window.open("tg://resolve?domain=drpepeaiOFFICIAL", "_blank")
