@@ -240,10 +240,9 @@ const TransferWidget = () => {
 
 
                     <div className={`${styles.boxright}`}>
-                            <div>DogLife.AI Wallet</div>
-                   <br/>
                             <SolTokenStats />
                         </div>
+
                     </div>
                     </div>
 

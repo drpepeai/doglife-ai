@@ -91,11 +91,14 @@ export default function SPLTokenStats() {
         <p>Loading balance...</p>
       ) : (
         <>
-          <div className={styles}>Total raised in $BRYAN: {balance.toLocaleString('en-US')}</div>
+          <div className={styles}>Total Raised: {balance.toLocaleString('en-US')}</div>
         </>
       )}
 
  
+      {/* 
+      
+      
       {loadingPrice ? (
         <p>Loading price...</p>
       ) : (
@@ -103,15 +106,18 @@ export default function SPLTokenStats() {
           Current Price: {price ? price : "N/A"} USDC
         </div>
       )}
+      
+       */}
      
 
       {/* 🔹 Display Total Raised in $BRYAN */}
       {!loading && !loadingPrice && (
         <div className={styles}>
-   Total raised in USDC: {Number(balance * price).toFixed(2)}
+   Total Raised in USDC: {Number(balance * price).toFixed(2)}
         </div>
       )}
-
+             <div className={styles.smallText}>All BRYAN used to buy DOGLIFEAI will  be locked for 3 years with https://streamflow.finance/ with the contract address shared here.</div>
+             <div className={styles.smallText}>You will be able to buy DOGLIFEAI with BRYAN until April 1, 2025</div>
     </div>
   );
 }
