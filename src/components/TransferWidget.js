@@ -148,7 +148,6 @@ const TransferWidget = () => {
     return (
         <>
             <div className={styles.container_header}>
-                <Link to="/" className={styles.tohome}> DogLife.AI</Link>
                 <WalletMultiButton className={styles} />
             </div>
 
@@ -237,6 +236,7 @@ const TransferWidget = () => {
             </section>
 
             <div className={styles.container_footer}>
+            <Link to="/" className={styles.tohome}> Home </Link>
             <div className={styles.menu} >
                 <div onClick={toggleDropdown} className="nav-toggle">
                 {menuOpen ? (

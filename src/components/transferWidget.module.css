@@ -208,7 +208,7 @@ input[type="number"] {
 .container_header{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   height: 3rem;
 
@@ -224,7 +224,7 @@ input[type="number"] {
   height: 3rem; /* Adjust height as needed */
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Aligns menu to the right */
+  justify-content: space-between; /* Aligns menu to the right */
   padding: 0 20px; /* Right padding */
   background-color:var(--white);
 }
