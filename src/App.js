@@ -45,7 +45,7 @@ function SwipeNavigator() {
   });
 
   return (
-    <div {...handlers} style={{ width: "100vw", height: "100vh" }}>
+    <div {...handlers} style={{ width: "100vw", height: "100dvh" }}>
       <Routes>
         <Route path="/" element={<Hero />} />
         <Route path="/transfer-widget" element={<TransferWidget />} />
