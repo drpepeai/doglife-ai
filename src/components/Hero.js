@@ -123,9 +123,9 @@ const Hero = () => {
             dog agent v.0 1
           </div>
 
-          <Link to="/buy" className="text-line link-text">
+             {/*<Link to="/buy" className="text-line link-text">
             <span>buy with $BRYAN</span>
-          </Link>
+          </Link>*/}
 
       </section>
       

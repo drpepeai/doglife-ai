@@ -298,10 +298,10 @@ const TransferWidget = () => {
                 {dropdownOpenRead && (
                 <div className={styles.slideupRead}>
 
-                    <div className={styles.smallText}>All BRYAN used to buy DOGLIFEAI will be either locked for 3 years with <a href="https://streamflow.finance/" target="_blank" rel="noopener noreferrer" className="dropdown-item">  https://streamflow.finance  </a> or with the contract address shared here.
+                    <div className={styles.smallText}>All BRYAN used to buy DOGLIFEAI will be either locked for 3 years with <a href="https://streamflow.finance/" target="_blank" rel="noopener noreferrer" className="dropdown-item">  https://streamflow.finance  </a>
                     </div>
 
-                    <div className={styles.smallText}>You will be able to buy DOGLIFEAI with BRYAN until further notice.</div>
+                    <div className={styles.smallText}>This keeps the relative share of supply exactly proportional — so if someone held 0.01% of BRYAN, they'd get 0.01% of DOGLIFEAI.</div>
                
                 </div>
                 )}
